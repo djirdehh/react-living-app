@@ -70,6 +70,18 @@ var StatesField = React.createClass({
 						<input type="radio" className="checkbox-control" checked={this.state.country === 'EUROPE'} value="EUROPE" onChange={this.switchCountry}/>
 						<span className="checkbox-label">Europe</span>
 					</label>
+					<label className="checkbox">
+						<input type="radio" className="checkbox-control" checked={this.state.country === 'ASIA'} value="ASIA" onChange={this.switchCountry}/>
+						<span className="checkbox-label">Asia</span>
+					</label>
+					<label className="checkbox">
+						<input type="radio" className="checkbox-control" checked={this.state.country === 'AFRICA'} value="AFRICA" onChange={this.switchCountry}/>
+						<span className="checkbox-label">Africa</span>
+					</label>
+					<label className="checkbox">
+						<input type="radio" className="checkbox-control" checked={this.state.country === 'OCEANIA'} value="OCEANIA" onChange={this.switchCountry}/>
+						<span className="checkbox-label">Oceania</span>
+					</label>
 				</div>
 			</div>
 		);
