@@ -47,37 +47,9 @@ class App extends React.Component {
 
   handleCurrentCity (e) {
     let currencyType;
+    const dataSet = require('../data/cost_of_living_indices.json');
 
-    // if (e.target.value.indexOf("United States") >= 0) {
-    //   currencyType = 'USD';
-    // } else if (e.target.value.indexOf("Canada") >= 0) {
-    //   currencyType = 'CAD';
-    // } else if (e.target.value.indexOf("Bermuda") >= 0) {
-    //   currencyType = 'BMD';
-    // } else if (e.target.value.indexOf("Panama") >= 0) {
-    //   currencyType = 'PAB';
-    // } else if (e.target.value.indexOf("Costa Rica") >= 0) {
-    //   currencyType = 'CRC';
-    // } else if (e.target.value.indexOf("Argentina") >= 0) {
-    //   currencyType = 'ARS';
-    // } else if (e.target.value.indexOf("Dominican Republic") >= 0) {
-    //   currencyType = 'DOP';
-    // } else if (e.target.value.indexOf("Chile") >= 0) {
-    //   currencyType = 'CLP';
-    // } else if (e.target.value.indexOf("Guatemala") >= 0) {
-    //   currencyType = 'GTQ';
-    // } else if (e.target.value.indexOf("Peru") >= 0) {
-    //   currencyType = 'PEN';
-    // } else if (e.target.value.indexOf("Mexico") >= 0) {
-    //   currencyType = 'MXN';
-    // } else if (e.target.value.indexOf("Colombia") >= 0) {
-    //   currencyType = 'COP';
-    // }
-
-    // this.setState({
-    //   currentCity: e.target.value,
-    //   currencyType: currencyType
-    // });
+    currencyType = dataSet[e].currency_type;
 
     this.setState({
       currentCity: e,
@@ -86,10 +58,6 @@ class App extends React.Component {
   }
 
   handleNewCity (e) {
-    // this.setState({
-    //   newCity: e.target.value
-    // });
-
     this.setState({
       newCity: e
     });
@@ -189,7 +157,8 @@ class App extends React.Component {
         return <WelcomeComponent nextStep={this.nextStep}/>
       case 2:
         return <CityDropDownComponent id='cityDropdown'
-                      value={this.state.currentCity} 
+                      value={this.state.currentCity}
+                      currencyType={this.state.currencyType} 
                       onChange={this.handleCurrentCity}
                       nextStep={this.nextStep}
                       previousStep={this.previousStep}
