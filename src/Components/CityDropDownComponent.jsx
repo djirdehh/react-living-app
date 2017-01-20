@@ -111,7 +111,8 @@ class CityDropDownComponent extends React.Component {
 	}
 
 	checkIfCityExists () {
-		return (this.props.keyedOptions[(this.state.selected)] !== undefined);
+		const dataSet = require('../data/cost_of_living_indices.json');
+		return (dataSet[(this.state.selected)] !== undefined);
 	}
 
 	render () {
