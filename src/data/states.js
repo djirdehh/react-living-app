@@ -435,7 +435,7 @@ exports.OCEANIA = [
 
 exports.AFRICA = [
     { value: 'Accra, Ghana', label: 'Accra, Ghana' },
-    { value: 'Addis Ababa, Ethiopia ', label: 'Addis Ababa, Ethiopia' },
+    { value: 'Addis Ababa, Ethiopia', label: 'Addis Ababa, Ethiopia' },
     { value: 'Algiers, Algeria', label: 'Algiers, Algeria' },
     { value: 'Cairo, Egypt', label: 'Cairo, Egypt' },
     { value: 'Cape Town, South Africa', label: 'Cape Town, South Africa' },
