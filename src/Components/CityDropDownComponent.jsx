@@ -115,14 +115,6 @@ class CityDropDownComponent extends React.Component {
 	}
 
 	render () {
-		const self = this;
-		const options = self.props.options.map(function(option) {
-			return (
-				<option key={option[self.props.valueField]} value={option[self.props.value]}>
-					{option[self.props.labelField]}
-				</option>
-			)
-		});
 		return (
 			<div className="aligner">
 				<div style={menu_button_container}>
@@ -164,7 +156,6 @@ class CityDropDownComponent extends React.Component {
 
 CityDropDownComponent.propTypes = {
 	id: React.PropTypes.string.isRequired,
-	options: React.PropTypes.array.isRequired,
 	value: React.PropTypes.string.isRequired,
 	valueField: React.PropTypes.string,
 	labelField: React.PropTypes.string
