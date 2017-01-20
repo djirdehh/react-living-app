@@ -1,7 +1,6 @@
 import React from 'react';
 import States from './States.jsx';
 
-
 let intro = {
 	color: '#FFF',
 	fontFamily: 'Nunito, sans-serif',
