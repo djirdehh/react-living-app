@@ -123,8 +123,8 @@ class CityDropDownComponent extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							{(this.props.stepNumber === 2) && <p style={intro}>Which city do you currently live in?</p>}
-							{(this.props.stepNumber === 4) && <p style={intro}>Which city do you want to live in?</p>}
+							{(this.props.stepNumber === 2) && <p style={intro}>What city do you currently live in?</p>}
+							{(this.props.stepNumber === 4) && <p style={intro}>What city do you wish to live in?</p>}
 							
 							<States label="States" onChange={this.props.onChange} searchable />
 

@@ -99,7 +99,7 @@ class WelcomeComponent extends React.Component {
 						<img src={logo} style={logo_properties} />
 						<h3 style={sub_intro}>The Cost Of Living App</h3>
 						<p style={description}> Have you ever thought how far your current cost of living will go in another city?
-						This simple app, built with React, will calculate how much more (or less) you would need
+						This simple app will calculate how much more (or less) you would need
 						to maintain the same standard of living in another city!
 						</p>
 						<div style={buttons_container}>
