@@ -190,7 +190,6 @@ class App extends React.Component {
       case 2:
         return <CityDropDownComponent id='cityDropdown'
                       value={this.state.currentCity} 
-                      valueField='index' labelField='city' 
                       onChange={this.handleCurrentCity}
                       nextStep={this.nextStep}
                       previousStep={this.previousStep}
@@ -207,7 +206,6 @@ class App extends React.Component {
       case 4:
         return <CityDropDownComponent id='cityDropdown'
                       value={this.state.newCity} 
-                      valueField='index' labelField='city' 
                       onChange={this.handleNewCity}
                       nextStep={this.calculateNewCostOfLivingAndNextStep}
                       previousStep={this.previousStep}

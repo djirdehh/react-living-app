@@ -55,12 +55,20 @@ var StatesField = React.createClass({
 
 				<div className="checkbox-list">
 					<label className="checkbox">
+						<input type="radio" className="checkbox-control" checked={this.state.country === 'US'} value="US" onChange={this.switchCountry}/>
+						<span className="checkbox-label">United States & Mexico</span>
+					</label>
+					<label className="checkbox">
 						<input type="radio" className="checkbox-control" checked={this.state.country === 'CA'} value="CA" onChange={this.switchCountry}/>
 						<span className="checkbox-label">Canada</span>
 					</label>
 					<label className="checkbox">
-						<input type="radio" className="checkbox-control" checked={this.state.country === 'US'} value="US" onChange={this.switchCountry}/>
-						<span className="checkbox-label">United States & Mexico</span>
+						<input type="radio" className="checkbox-control" checked={this.state.country === 'SOUTH_AMERICA'} value="SOUTH_AMERICA" onChange={this.switchCountry}/>
+						<span className="checkbox-label">South America</span>
+					</label>
+					<label className="checkbox">
+						<input type="radio" className="checkbox-control" checked={this.state.country === 'EUROPE'} value="EUROPE" onChange={this.switchCountry}/>
+						<span className="checkbox-label">Europe</span>
 					</label>
 				</div>
 			</div>
