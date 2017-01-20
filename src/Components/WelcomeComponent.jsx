@@ -1,7 +1,8 @@
 import React from 'react';
 import WelcomeDetailsComponent from './WelcomeDetailsComponent.jsx';
 import logo from '../logo.png';
-import personal_logo from '../personal_logo.png'
+import personal_logo from '../personal_logo.png';
+import react_logo from '../logo.svg';
 
 let logo_properties = {
 	height: '135px',
@@ -93,11 +94,6 @@ class WelcomeComponent extends React.Component {
 		return (
 			<div style={inherit_height}>
 			{(!this.state.openDetails) && <div className="aligner">
-				<a href="http://hassandjirdeh.com" target="_blank">
-					<div className='name-section'>
-						<p className='name-text'>Hassan Djirdeh</p>
-					</div>
-				</a>
 				<div>
 					<div className='welcome-block'>
 						<img src={logo} style={logo_properties} />
@@ -112,6 +108,22 @@ class WelcomeComponent extends React.Component {
 						</div>
 					</div>
 				</div>
+			<div className="footer">
+				<div className='footer-description1'><span className='footer-name-text'>HD</span> © 2017</div>
+				<div className='footer-description2'>Built with <a href="https://facebook.github.io/react/" 
+				target="_blank" className="footer-link-description">React</a> <img src={react_logo} className='footer-logo'/></div>
+				<div className='footer-social-media'>
+					<a href="http://hassandjirdeh.com" target="_blank" className="social_links">
+				        <i id="social-link" className="fa fa-h-square fa-2x social" aria-hidden="true"></i>
+				    </a>
+					<a href="https://ca.linkedin.com/in/hassandjirdeh" target="_blank" className="social_links">
+				        <i id="social-link" className="fa fa-linkedin-square fa-2x social" aria-hidden="true"></i>
+				     </a>
+				    <a href="mailto:hassan.djirdeh@mail.utoronto.ca" target="_blank" className="social_links">
+				    	<i id="social-em" className="fa fa-envelope-square fa-2x social"></i>
+				    </a>
+				</div>
+			</div>
 			</div>}
 			{(this.state.openDetails) && <WelcomeDetailsComponent closeDetails={this.closeDetails}/>}
 			</div>	

@@ -20,6 +20,7 @@ html, body, #root {
 .name-text {
   color: #FFF;
   font-family: Allura, cursive;
+  text-align: center;
   font-size: 35px;
    -o-transition:.5s;
   -ms-transition:.5s;
@@ -119,34 +120,119 @@ html, body, #root {
   position: relative;
 }
 
-/*Gradient Text*/
-@supports (mix-blend-mode: lighten) {
- .gradient1 {
-    position: relative;
-    color: #fff;
-    background: #000;
-    mix-blend-mode: lighten;
-  }
- .gradient1::before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(to right,#db0768, rgb(234, 76, 136), #e23b4a, #faaa54, #faaa54);
-    cursor: pointer;
-  }
- .gradient1::before {
-    mix-blend-mode: multiply;
-  }
-}
-
-
-
 input::-webkit-calendar-picker-indicator {
   display: none;
+}
+
+/*Footer*/
+.footer {
+  position: absolute;
+  bottom: 10px;
+}
+
+.footer-description1 {
+  font-family: Nunito, sans-serif;
+  font-size: 13px;
+  text-align: center;
+  text-shadow: 0.1px 0.1px #ea4c88;
+  color: #FFF;
+}
+
+.footer-name-text {
+  color: #FFF;
+  font-family: Allura, cursive;
+  text-align: center;
+  font-size: 17px;
+  -o-transition: .5s;
+  -ms-transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.footer-description2 {
+  font-family: Nunito, sans-serif;
+  font-size: 11px;
+  text-align: center;
+  text-shadow: 0.1px 0.1px #ea4c88;
+  color: #FFF;
+  padding-bottom: 5px;
+}
+
+.footer-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 20px;
+  display: inline-block;
+  margin: 0 auto;
+  position: relative;
+  right: 5px;
+  bottom: 1px;
+}
+
+.footer-social-media {
+  text-align: center;
+}
+
+.footer-link-description {
+    text-decoration: none !important; 
+    color: #ea4c88 !important; 
+    display: inline !important;
+    cursor: pointer !important;
+}
+
+.footer-link-description:hover {
+    /*font-size: 1.4em;*/
+    color: #33C3F0 !important; 
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+    -webkit-animation-delay: 5s;
+}
+
+.social{
+    text-decoration: none;
+    -webkit-transform:scale(0.8);
+    -moz-transform:scale(0.8);
+    -o-transfrom:scale(0.8);
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration:0.5s;
+    -o-transition-duration:0.5s;
+}
+
+.social_links {
+    text-decoration: none;
+    color: #ea4c88;
+}
+
+#social-em:hover {
+    color:#33C3F0;
+}
+#social-facebook:hover {
+    color:#33C3F0;
+}
+
+#social-link:hover {
+    color:#33C3F0;
+}
+
+#social-em:hover {
+    color:#33C3F0;
+}
+#social-facebook:hover {
+    color:#33C3F0;
+}
+
+#social-link:hover {
+    color:#33C3F0;
+}
+
+a.social_links {
+  color: #ea4c88 !important;
+}
+
+a.social_links:hover {
+  color:#33C3F0;
 }
 
 /*Logo Spin*/
@@ -530,6 +616,7 @@ input::-webkit-calendar-picker-indicator {
 
   .name-text {
     font-size: 20px;
+    text-align: center;
   }
 
   .banner-image-sub-intro {

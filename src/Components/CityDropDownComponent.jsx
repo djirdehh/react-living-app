@@ -120,11 +120,6 @@ class CityDropDownComponent extends React.Component {
 				<div style={menu_button_container}>
 					<button className='continue-button' onClick={this.props.resetToFirstStep}>Menu</button>
 				</div>
-				<a href="http://hassandjirdeh.com" target="_blank">
-					<div className='name-section'>
-						<p className='name-text'>Hassan Djirdeh</p>
-					</div>
-				</a>
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
