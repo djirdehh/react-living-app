@@ -46,7 +46,6 @@ let input = {
     paddingLeft: '1em',
     border: 'none',
     outline: '0',
-    background: '#F5ECD9',
     height: '40px',
     color: '#3B3B3B',
     fontSize: '15px',
@@ -60,9 +59,10 @@ let select = {
     height: '40px',
     color: 'rgb(59, 59, 59)',
     fontSize: '15px',
-    background: 'rgb(245, 236, 217)',
     display: 'inline-block',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    WebkitAppearance: 'none', 
+    MozAppearance: 'none' 
 }
 
 let result_text = {

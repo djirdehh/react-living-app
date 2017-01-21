@@ -4,7 +4,7 @@ import Select from 'react-select';
 const STATES = require('../data/states');
 
 let section_width = {
-	maxWidth: '600px',
+	maxWidth: '450px',
 	margin: '0 auto'
 }
 
@@ -34,7 +34,7 @@ var StatesField = React.createClass({
 	},
 	getInitialState () {
 		return {
-			region: 'US',
+			region: 'ALL',
 			disabled: false,
 			searchable: this.props.searchable,
 			selectValue: 'Pick a Region and Search!',
@@ -66,41 +66,15 @@ var StatesField = React.createClass({
 	},
 	render () {
 		var options = STATES[this.state.region];
+		options.sort( function( a, b ) {
+		    a = a.value.toLowerCase();
+		    b = b.value.toLowerCase();
+
+		    return a < b ? -1 : a > b ? 1 : 0;
+		});
 		return (
 			<div style={section_width} className="section">
 				<Select ref="stateSelect" autofocus options={options} simpleValue clearable={this.state.clearable} name="selected-state" disabled={this.state.disabled} value={this.state.selectValue} onChange={this.updateValue} searchable={this.state.searchable} />
-				<div className="checkbox-list row">
-					<div style={align_middle} className="col-md-4">
-						<label style={full_width} className="checkbox">
-							<input type="radio" className="checkbox-control" checked={this.state.region === 'NORTH_AMERICA'} value="NORTH_AMERICA" onChange={this.switchRegion}/>
-							<span className="checkbox-label">North America</span>
-						</label>
-						<label style={full_width} className="checkbox">
-							<input type="radio" className="checkbox-control" checked={this.state.region === 'SOUTH_AMERICA'} value="SOUTH_AMERICA" onChange={this.switchRegion}/>
-							<span className="checkbox-label">South America</span>
-						</label>
-					</div>
-					<div style={align_middle} className="col-md-4">
-						<label style={full_width} className="checkbox">
-							<input type="radio" className="checkbox-control" checked={this.state.region === 'EUROPE'} value="EUROPE" onChange={this.switchRegion}/>
-							<span className="checkbox-label">Europe</span>
-						</label>
-						<label style={full_width} className="checkbox">
-							<input type="radio" className="checkbox-control" checked={this.state.region === 'ASIA'} value="ASIA" onChange={this.switchRegion}/>
-							<span className="checkbox-label">Asia</span>
-						</label>
-					</div>
-					<div style={align_middle} className="col-md-4">
-						<label style={full_width} className="checkbox">
-							<input type="radio" className="checkbox-control" checked={this.state.region === 'AFRICA'} value="AFRICA" onChange={this.switchRegion}/>
-							<span className="checkbox-label">Africa</span>
-						</label>
-						<label style={full_width} className="checkbox">
-							<input type="radio" className="checkbox-control" checked={this.state.region === 'OCEANIA'} value="OCEANIA" onChange={this.switchRegion}/>
-							<span className="checkbox-label">Oceania</span>
-						</label>
-					</div>
-				</div>
 			</div>
 		);
 	}
@@ -125,4 +99,39 @@ module.exports = StatesField;
 // 						<input type="checkbox" className="checkbox-control" name="clearable" checked={this.state.clearable} onChange={this.toggleCheckbox}/>
 // 						<span className="checkbox-label">Clearable</span>
 // 					</label>
+// 				</div>
+
+
+
+// <div className="checkbox-list row">
+// 					<div style={align_middle} className="col-md-4">
+// 						<label style={full_width} className="checkbox">
+// 							<input type="radio" className="checkbox-control" checked={this.state.region === 'NORTH_AMERICA'} value="NORTH_AMERICA" onChange={this.switchRegion}/>
+// 							<span className="checkbox-label">North America</span>
+// 						</label>
+// 						<label style={full_width} className="checkbox">
+// 							<input type="radio" className="checkbox-control" checked={this.state.region === 'SOUTH_AMERICA'} value="SOUTH_AMERICA" onChange={this.switchRegion}/>
+// 							<span className="checkbox-label">South America</span>
+// 						</label>
+// 					</div>
+// 					<div style={align_middle} className="col-md-4">
+// 						<label style={full_width} className="checkbox">
+// 							<input type="radio" className="checkbox-control" checked={this.state.region === 'EUROPE'} value="EUROPE" onChange={this.switchRegion}/>
+// 							<span className="checkbox-label">Europe</span>
+// 						</label>
+// 						<label style={full_width} className="checkbox">
+// 							<input type="radio" className="checkbox-control" checked={this.state.region === 'ASIA'} value="ASIA" onChange={this.switchRegion}/>
+// 							<span className="checkbox-label">Asia</span>
+// 						</label>
+// 					</div>
+// 					<div style={align_middle} className="col-md-4">
+// 						<label style={full_width} className="checkbox">
+// 							<input type="radio" className="checkbox-control" checked={this.state.region === 'AFRICA'} value="AFRICA" onChange={this.switchRegion}/>
+// 							<span className="checkbox-label">Africa</span>
+// 						</label>
+// 						<label style={full_width} className="checkbox">
+// 							<input type="radio" className="checkbox-control" checked={this.state.region === 'OCEANIA'} value="OCEANIA" onChange={this.switchRegion}/>
+// 							<span className="checkbox-label">Oceania</span>
+// 						</label>
+// 					</div>
 // 				</div>
