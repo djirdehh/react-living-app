@@ -96,7 +96,7 @@ class CurrentCostOfLivingComponent extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<p style={intro}>What's your current salary?</p>
+							<p style={intro}>What's your current annual salary?</p>
 							<div style={input_overlay}>
 								<select style={select} value={this.props.currencyValue} onChange={this.props.onChangeOfCurrencyType}>
 									<option>{this.props.currencyValue}</option>
