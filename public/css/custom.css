@@ -322,6 +322,18 @@ a.social_links:hover {
   z-index: 1;
 }
 
+.alternative-banner-image-intro {
+  color: #FFF;
+  font-family: Nunito, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+}
+
 .banner-image-sub-intro {
   font-size: 20px;
   font-weight: 400;
@@ -637,5 +649,15 @@ a.social_links:hover {
 
   .checkbox-label {
     font-size: 11px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .mobilePadding {
+    padding-bottom: 40px;
+  }
+
+  .banner-image-sub-intro {
+    display: none;
   }
 }

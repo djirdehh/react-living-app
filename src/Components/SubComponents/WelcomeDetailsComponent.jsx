@@ -16,7 +16,7 @@ let logo_properties = {
 let intro = {
   color: '#E94A87',
   fontFamily: 'Nunito, sans-serif',
-  fontSize: '25px',
+  fontSize: '35px',
   fontWeight: '700',
   textAlign: 'center',
   margin: '5px'
@@ -81,7 +81,7 @@ class WelcomeDetailsComponent extends React.Component {
             <div className="row">
               <div style={padding_outline} className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <img src={logo} style={logo_properties} />
-                <h3 style={intro}>The Cost Of Living App</h3>
+                <h3 style={intro}>citii.io</h3>
                 <p style={description}> The cost-of-living index, attributed to Russian economist A. A. Konüs, is a theoretical price index that measures 
                   the relative cost of living over time (or regions). The COF index has been widely used to show the difference in living between cities
                   and is the basis for this application.

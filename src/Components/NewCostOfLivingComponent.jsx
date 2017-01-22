@@ -1,4 +1,5 @@
 import React from 'react';
+import banner_image_url from '../sky_banner.png';
 
 let full_page_height = {
 	height: '100%'
@@ -64,6 +65,14 @@ let comparable_salary_text = {
 	fontSize: '50px',
 	textAlign: 'center',
 	marginBottom: '3rem'
+}
+
+let alternative_comparable_salary_text = {
+	color: '#3DF2FF',
+	fontFamily: 'Nunito, sans-serif',
+	fontSize: '50px',
+	textAlign: 'center',
+	marginBottom: '7rem'
 }
 
 let sub_salary_text = {
@@ -224,10 +233,6 @@ class NewCostOfLivingComponent extends React.Component {
 			var text_split = text.split(".")[0];
 		}
 
-		if (!this.props.newCitySlug) {
-			image_url = 'https://pixabay.com/get/e83db7082ef5073ed1534705fb0938c9bd22ffd41db9144190f7c07fa4/astronomy-1867616_1920.jpg'
-		}
-
 		return (
 			<div style={full_page_height}>
 				<div style={buttons_container}>
@@ -236,14 +241,18 @@ class NewCostOfLivingComponent extends React.Component {
 
 				<div style={full_page_height}>
 					<div style={image_container} className="background-darken">
-						<img src={image_url} style={{width: '100%', opacity: '0.4', 'height': '30vh'}}/>
-						<div className="banner-image-intro">{this.props.newCity}<br/>
-						{(this.props.newCitySlug) && <span className="banner-image-sub-intro">{text_split}.</span>}
-						</div>
+						{(this.props.newCitySlug) && <img src={image_url} style={{width: '100%', opacity: '0.4', 'height': '30vh'}}/>}
+						{(!this.props.newCitySlug) && <img src={banner_image_url} style={{width: '100%', opacity: '0.7', 'height': '30vh'}}/>}
+						{(this.props.newCitySlug) && <div className="banner-image-intro">{this.props.newCity}<br/>
+							{(this.props.newCitySlug != 'london') && <span className="banner-image-sub-intro">{text_split}.</span>}
+							{(this.props.newCitySlug == 'london') && <span className="banner-image-sub-intro">London is one of the world's most inviting cities for startups, as well as home to world-class schools, universities and museums.</span>}
+						</div>}
+						{(!this.props.newCitySlug) && <div className="alternative-banner-image-intro">{this.props.newCity}</div>}
 					</div>
 					<div style={middle_container} className="container">
 						<p style={intro}>To have the same standard of living, a comparable salary would be</p>
-							<p style={comparable_salary_text}>≈ {this.props.currencyType} {this.props.value}</p>
+							{(this.props.newCitySlug) && <p style={comparable_salary_text}>≈ {this.props.currencyType} {this.props.value}</p>}
+							{(!this.props.newCitySlug) && <p style={alternative_comparable_salary_text}>≈ {this.props.currencyType} {this.props.value}</p>}
 						<div className='row'>
 							<div className='col-xs-12 col-sm-6 col-md-6 col-lg-3 mobilePadding'>
 								<div style={icon_index} id="icon-box">
