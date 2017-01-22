@@ -225,7 +225,7 @@ class NewCostOfLivingComponent extends React.Component {
 		}
 
 		if (!this.props.newCitySlug) {
-			image_url = 'http://www.freewebheaders.com/wordpress/wp-content/gallery/artistic-abstract/colored-flare-beams-abstract-art-web-header.jpg'
+			image_url = 'https://pixabay.com/get/e83db7082ef5073ed1534705fb0938c9bd22ffd41db9144190f7c07fa4/astronomy-1867616_1920.jpg'
 		}
 
 		return (
