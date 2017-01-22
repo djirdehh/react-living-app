@@ -9,7 +9,7 @@ let padding_outline = {
 }
 
 let logo_properties = {
-  height: '80px',
+  height: '70px',
   display: 'block',
   margin: '0 auto'
 }
