@@ -1,8 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import logo from '../logo.png';
-import teleport_logo from '../teleport_logo.svg';
-import react_logo from '../logo.svg';
+import logo from '../../logo.png';
+import teleport_logo from '../../teleport_logo.svg';
+import react_logo from '../../logo.svg';
 
 let padding_outline = {
   padding: '20px'
@@ -51,29 +50,6 @@ let buttons_container = {
   textAlign: 'center'
 }
 
-let details_button = {
-  height: '38px',
-    padding: '0 15px',
-    textAlign: 'center',
-    fontSize: '11px',
-    fontWeight: '600',
-    lineHeight: '38px',
-    letterSpacing: '.1rem',
-    textTransform: 'uppercase',
-    textDecoration: 'none',
-    whiteSpace: 'nowrap',
-    borderRadius: '4px',
-    border: '1px solid #bbb',
-    cursor: 'pointer',
-    boxSizing: 'border-box',
-    display: 'inline-block',
-    margin: '0px auto',
-    color: '#ea4c88',
-    backgroundColor: '#FFF',
-    borderColor: '#FFF',
-    margin: '0 10px'
-}
-
 let continue_button = {
   height: '38px',
     padding: '0 15px',
@@ -90,7 +66,6 @@ let continue_button = {
     cursor: 'pointer',
     boxSizing: 'border-box',
     display: 'inline-block',
-    margin: '0px auto',
     color: '#FFF',
     backgroundColor: '#ea4c88',
     borderColor: '#ea4c88',

@@ -4,6 +4,35 @@ let full_page_height = {
 	height: '100%'
 }
 
+let buttons_container = {
+	position: 'absolute',
+    zIndex: '999',
+    top: '10px',
+    left: '5px'
+}
+
+let continue_button = {
+	height: '38px',
+    padding: '0 15px',
+    textAlign: 'center',
+    fontSize: '11px',
+    fontWeight: '600',
+    lineHeight: '38px',
+    letterSpacing: '.1rem',
+    textTransform: 'uppercase',
+    textDecoration: 'none',
+    whiteSpace: 'nowrap',
+    borderRadius: '4px',
+    border: '1px solid #bbb',
+    cursor: 'pointer',
+    boxSizing: 'border-box',
+    display: 'inline-block',
+    color: '#FFF',
+    backgroundColor: '#ea4c88',
+    borderColor: '#ea4c88',
+    margin: '0 10px'
+}
+
 let image_container = {
 	position: 'relative'
 }
@@ -19,10 +48,6 @@ let final_container = {
 	height: '20vh'
 }
 
-let upper_portion_div = {
-	width: '100%'
-}
-
 let intro = {
 	color: '#FFF',
 	fontFamily: 'Nunito, sans-serif',
@@ -33,7 +58,7 @@ let intro = {
 	marginBottom: '0'
 }
 
-let up_comparable_salary_text = {
+let comparable_salary_text = {
 	color: '#3DF2FF',
 	fontFamily: 'Nunito, sans-serif',
 	fontSize: '50px',
@@ -41,35 +66,7 @@ let up_comparable_salary_text = {
 	marginBottom: '3rem'
 }
 
-let down_comparable_salary_text = {
-	color: 'rgb(234, 76, 136)',
-	fontFamily: 'Nunito, sans-serif',
-	fontSize: '50px',
-	textAlign: 'center',
-	marginBottom: '3rem'
-}
-
-let card_index = {
-	background: 'rgb(44, 51, 56)',
-    padding: '20px',
-    width: '250px',
-    display: 'block',
-    margin: '0 auto'
-}
-
 let sub_salary_text = {
-	color: 'antiquewhite',
-	textAlign: 'center',
-	fontFamily: 'Nunito, sans-serif',
-	fontSize: '20px',
-	fontWeight: '700',
-	marginBottom: '0',
-	paddingTop: '10px',
-	display: 'block',
-	margin: '0 auto'
-}
-
-let purchasing_power_text = {
 	color: 'antiquewhite',
 	textAlign: 'center',
 	fontFamily: 'Nunito, sans-serif',
@@ -109,11 +106,6 @@ let down_arrow_index = {
 	marginLeft: '3px'
 }
 
-let super_script = {
-	verticalAlign: 'super',
-	fontSize: '15px'
-}
-
 let random_section = {
 	position: 'absolute',
 	width: '100%',
@@ -121,43 +113,9 @@ let random_section = {
 	left: '0'
 }
 
-let random_salary_number = {
-	color: '#EA4C88',
-	fontFamily: 'Nunito, sans-serif',
-	fontSize: '20px',
-	fontWeight: '700',
-	display: 'inline-block',
-	paddingLeft: '5px'
-}
-
-let buttons_container = {
-	position: 'absolute',
-    zIndex: '999',
-    top: '10px',
-    left: '5px'
-}
-
-let continue_button = {
-	height: '38px',
-    padding: '0 15px',
-    textAlign: 'center',
-    fontSize: '11px',
-    fontWeight: '600',
-    lineHeight: '38px',
-    letterSpacing: '.1rem',
-    textTransform: 'uppercase',
-    textDecoration: 'none',
-    whiteSpace: 'nowrap',
-    borderRadius: '4px',
-    border: '1px solid #bbb',
-    cursor: 'pointer',
-    boxSizing: 'border-box',
-    display: 'inline-block',
-    margin: '0px auto',
-    color: '#FFF',
-    backgroundColor: '#ea4c88',
-    borderColor: '#ea4c88',
-    margin: '0 10px'
+let super_script = {
+	verticalAlign: 'super',
+	fontSize: '15px'
 }
 
 class NewCostOfLivingComponent extends React.Component {
@@ -278,14 +236,14 @@ class NewCostOfLivingComponent extends React.Component {
 
 				<div style={full_page_height}>
 					<div style={image_container} className="background-darken">
-						<img src={image_url} style={{width: '100%', opacity: '0.3', 'height': '30vh'}}/>
+						<img src={image_url} style={{width: '100%', opacity: '0.4', 'height': '30vh'}}/>
 						<div className="banner-image-intro">{this.props.newCity}<br/>
 						{(this.props.newCitySlug) && <span className="banner-image-sub-intro">{text_split}.</span>}
 						</div>
 					</div>
 					<div style={middle_container} className="container">
 						<p style={intro}>To have the same standard of living, a comparable salary would be</p>
-							<p style={up_comparable_salary_text}>≈ {this.props.currencyType} {this.props.value}</p>
+							<p style={comparable_salary_text}>≈ {this.props.currencyType} {this.props.value}</p>
 						<div className='row'>
 							<div className='col-xs-12 col-sm-6 col-md-6 col-lg-3 mobilePadding'>
 								<div style={icon_index} id="icon-box">
@@ -333,7 +291,7 @@ class NewCostOfLivingComponent extends React.Component {
 								<div style={icon_index} id="icon-box">
 	  								<span><i className="fa fa-star fa fa-lg-modification"></i></span>
 								</div>
-								<p style={purchasing_power_text}>Purchasing Power</p>
+								<p style={sub_salary_text}>Purchasing Power</p>
 								{purchasing_increase_format && <p style={percent_index_text} className="tooltip-bottom"
 								data-tooltip={'Purchasing Power (i.e. the number of of goods/services that can be purchased by a unit of currency) is '+purchasingPercentChange+'% higher in '+this.props.newCity+' .'} > {purchasingPercentChange}%
 									<i style={down_arrow_index} className="fa fa-arrow-up" aria-hidden="true"></i>

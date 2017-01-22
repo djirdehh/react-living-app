@@ -1,5 +1,5 @@
 import React from 'react';
-import States from './States.jsx';
+import States from './SubComponents/States.jsx';
 
 let intro = {
 	color: '#FFF',
@@ -13,15 +13,6 @@ let menu_button_container = {
     zIndex: '999',
     top: '10px',
     left: '5px'
-}
-
-let select = {
-	height: '40px',
-	color: 'rgb(59, 59, 59)',
-	background: 'rgb(245, 236, 217)',
-	display: 'block',
-	margin: '0 auto',
-	maxWidth: '400px'
 }
 
 let result_text = {
@@ -57,10 +48,6 @@ let hidden_text = {
 	marginTop: '32px'
 }
 
-let display_none = {
-	display: 'none'
-}
-
 class CityDropDownComponent extends React.Component {
 
 	constructor(props) {
@@ -68,8 +55,6 @@ class CityDropDownComponent extends React.Component {
 		this.getSelectedFromProps = this.getSelectedFromProps.bind(this);
 
 		this.state = {selected: this.getSelectedFromProps(this.props)};
-		this.handleClick = this.handleClick.bind(this);
-		this.handleKeyDown = this.handleKeyDown.bind(this);
 		this.checkIfCityExists = this.checkIfCityExists.bind(this);
 
 	}
@@ -87,26 +72,6 @@ class CityDropDownComponent extends React.Component {
 	componentWillReceiveProps(props) {
 		const selected = this.getSelectedFromProps(props);
 		this.setState({selected: selected});
-	}
-
-	handleClick (e) {
-		var input = e.target;
-		var list = input.getAttribute('list');
-
-		if (list) {
-			input.setAttribute('data-list', list);
-			input.removeAttribute('list');
-		}
-	}
-
-	handleKeyDown (e) {
-		var input = e.target;
-		var list = input.getAttribute('data-list');
-
-		if (list) {
-			input.setAttribute('list', list);
-			input.removeAttribute('data-list');
-		}
 	}
 
 	checkIfCityExists () {
@@ -128,7 +93,6 @@ class CityDropDownComponent extends React.Component {
 							
 							<States label="States" onChange={this.props.onChange} searchable />
 
-
 							{(this.state.selected === '') && <p style={hidden_text}>.</p>}
 							{(this.state.selected !== '') && <p style={result_text}>{this.state.selected}</p>}
 							
@@ -148,18 +112,5 @@ class CityDropDownComponent extends React.Component {
 		);
 	}
 }
-
-CityDropDownComponent.propTypes = {
-	id: React.PropTypes.string.isRequired,
-	value: React.PropTypes.string.isRequired,
-	valueField: React.PropTypes.string,
-	labelField: React.PropTypes.string
-};
-
-CityDropDownComponent.defaultProps = {
-	value: '',
-	valueField: 'value',
-	labelField: 'label'
-};
 
 export default CityDropDownComponent;

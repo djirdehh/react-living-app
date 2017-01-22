@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from 'react-select';
 
-const STATES = require('../data/states');
+const STATES = require('../../data/states');
 
 let section_width = {
 	maxWidth: '450px',

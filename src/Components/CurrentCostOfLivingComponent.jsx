@@ -30,7 +30,6 @@ let menu_button = {
     cursor: 'pointer',
     boxSizing: 'border-box',
     display: 'inline-block',
-    margin: '0px auto',
     color: '#FFF',
     backgroundColor: '#ea4c88',
     borderColor: '#ea4c88',
@@ -39,18 +38,6 @@ let menu_button = {
 
 let input_overlay = {
 	textAlign: 'center'
-}
-
-let input = {
-	width: '200px',
-    paddingLeft: '1em',
-    border: 'none',
-    outline: '0',
-    height: '40px',
-    color: '#3B3B3B',
-    fontSize: '15px',
-    display: 'inline-block',
-    marginLeft: '10px'
 }
 
 let select = {
@@ -63,6 +50,18 @@ let select = {
     cursor: 'pointer',
     WebkitAppearance: 'none', 
     MozAppearance: 'none' 
+}
+
+let input = {
+	width: '200px',
+    paddingLeft: '1em',
+    border: 'none',
+    outline: '0',
+    height: '40px',
+    color: '#3B3B3B',
+    fontSize: '15px',
+    display: 'inline-block',
+    marginLeft: '10px'
 }
 
 let result_text = {

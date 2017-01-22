@@ -76,43 +76,31 @@ class App extends React.Component {
 
     const dataSet = require('../data/cost_of_living_indices.json');
 
-    const currentCityIndex = dataSet[currentCity].index;
-    const newCityIndex = dataSet[newCity].index;
-    const currentCityRentIndex = dataSet[currentCity].rent_index;
-    const newCityRentIndex = dataSet[newCity].rent_index;
-    const newCitySlug = dataSet[newCity].slug;
-    const currentCityGroceriesIndex = dataSet[currentCity].groceries_index;
-    const newCityGroceriesIndex = dataSet[newCity].groceries_index;
-    const currentCityRestaurantIndex = dataSet[currentCity].restaurant_index;
-    const newCityRestaurantIndex = dataSet[newCity].restaurant_index;
-    const currentCityPurchasingIndex = dataSet[currentCity].purchasing_index;
-    const newCityPurchasingIndex = dataSet[newCity].purchasing_index;
-
-    if (newCityIndex !== currentCityIndex) {
-      let fractionalChange = ((newCityIndex - currentCityIndex)/currentCityIndex);
+    if (dataSet[newCity].index !== dataSet[currentCity].index) {
+      let fractionalChange = ((dataSet[newCity].index - dataSet[currentCity].index)/dataSet[currentCity].index);
       newCostOfLiving = (currentCostOfLiving + (currentCostOfLiving * fractionalChange));
     } else {
       newCostOfLiving = currentCostOfLiving;
     }
 
-    if (newCityRentIndex !== currentCityRentIndex) {
-      rentPercentChange = Math.round(((newCityRentIndex - currentCityRentIndex)/currentCityRentIndex) * 100);
+    if (dataSet[newCity].rent_index !== dataSet[currentCity].rent_index) {
+      rentPercentChange = Math.round(((dataSet[newCity].rent_index - dataSet[currentCity].rent_index)/dataSet[currentCity].rent_index) * 100);
     }
 
-    if (newCityGroceriesIndex !== currentCityGroceriesIndex) {
-      groceriesPercentChange = Math.round(((newCityGroceriesIndex - currentCityGroceriesIndex)/currentCityGroceriesIndex) * 100);
+    if (dataSet[newCity].groceries_index !== dataSet[currentCity].groceries_index) {
+      groceriesPercentChange = Math.round(((dataSet[newCity].groceries_index - dataSet[currentCity].groceries_index)/dataSet[currentCity].groceries_index) * 100);
     }
 
-    if (newCityRestaurantIndex !== currentCityRestaurantIndex) {
-      restaurantPercentChange = Math.round(((newCityRestaurantIndex - currentCityRestaurantIndex)/currentCityRestaurantIndex) * 100);
+    if (dataSet[newCity].restaurant_index !== dataSet[currentCity].restaurant_index) {
+      restaurantPercentChange = Math.round(((dataSet[newCity].restaurant_index - dataSet[currentCity].restaurant_index)/dataSet[currentCity].restaurant_index) * 100);
     }
 
-    if (newCityPurchasingIndex !== currentCityPurchasingIndex) {
-      purchasingPercentChange = Math.round(((newCityPurchasingIndex - currentCityPurchasingIndex)/currentCityPurchasingIndex) * 100);
+    if (dataSet[newCity].purchasing_index !== dataSet[currentCity].purchasing_index) {
+      purchasingPercentChange = Math.round(((dataSet[newCity].purchasing_index - dataSet[currentCity].purchasing_index)/dataSet[currentCity].purchasing_index) * 100);
     }
 
     this.setState({
-      newCitySlug: newCitySlug,
+      newCitySlug: dataSet[newCity].slug,
       newCostOfLiving: (Math.round(newCostOfLiving/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
       rentPercentChange: rentPercentChange,
       groceriesPercentChange: groceriesPercentChange,
@@ -139,7 +127,7 @@ class App extends React.Component {
     this.setState({
       step: 1,
       currentCostOfLiving: '',
-      currencyType: '$',
+      currencyType: 'USD',
       currentCity: '',
       newCity: '',
       newCitySlug: '',
