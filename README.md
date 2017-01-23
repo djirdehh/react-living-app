@@ -1,5 +1,7 @@
 
-(https://github.com/djirdehh/react-living-app/blob/master/src/logo.png)
+![solarized palette](https://github.com/altercation/solarized/raw/master/img/solarized-palette.png)
+
+![citii logo](https://github.com/djirdehh/react-living-app/blob/master/src/logo.png)
 
 
 
