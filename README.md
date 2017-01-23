@@ -5,7 +5,9 @@
 </div>
 -----------------------------
 ## citii.io
-A react app that uses Teleport's Public API's and Numbeo's 2017 Cost of Living data to allow users to compare the cost of living between different cities. The cost of living of a particular city takes into account the city's rent, groceries and dining out costs as well as local purchasing power.
+<table>
+citii.io is a React App that uses Teleport's Public API's and Numbeo's 2017 Cost of Living data to allow users to compare the cost of living between different cities. The cost of living of a particular city takes into account the city's rent, groceries and dining out costs as well as local purchasing power.
+</table>
 
 
 <!-- <img src="http://www.citii.io/static/media/logo.5d5d9eef.svg" width="150"/> -->
