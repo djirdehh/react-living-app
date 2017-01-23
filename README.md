@@ -1,4 +1,10 @@
-<div style='text-align: center'> ![citii logo](https://github.com/djirdehh/react-living-app/blob/master/src/logo.png)</div>
+<div align="center">
+  <img src="http://www.citii.io/static/media/logo.5d5d9eef.svg" width="250" height="150"/>
+<!--   ![React Logo](https://github.com/djirdehh/react-living-app/blob/master/src/logo.svg = 250x) -->
+  <p>A React App that helps you compare the cost of living between cities worldwide</p>
+  <a href="http://www.citii.io">Launch App</a>
+</div>
+-----------------------------
 
 
 
