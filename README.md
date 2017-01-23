@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="http://www.citii.io/static/media/logo.5d5d9eef.svg" />
+  <img src="http://www.citii.io/static/media/logo.5d5d9eef.svg" style="width: 100px;"/>
   <p>A React App that helps you compare the cost of living between cities worldwide</p>
 </div>
 
