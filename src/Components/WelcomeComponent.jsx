@@ -87,7 +87,7 @@ class WelcomeComponent extends React.Component {
 						<div className='welcome-block'>
 							<img src={logo} className='welcome-logo' alt='logo' />
 							<h3 className='welcome-intro'>citii.<span style={primary_color}>io</span></h3>
-							<p className='welcome-description'> Have you ever thought how far your current cost of living will go in another city?
+							<p className='welcome-description'> Ever thought how far your current cost of living will go in another city?
 							This simple app will calculate how much more (or less) you would need
 							to maintain the same standard of living in another city!
 							</p>
