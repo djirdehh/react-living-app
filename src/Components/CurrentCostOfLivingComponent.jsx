@@ -45,6 +45,7 @@ let select = {
     paddingLeft: '1em',
     height: '40px',
     color: 'rgb(59, 59, 59)',
+    backgroundColor: '#FFF',
     fontSize: '15px',
     display: 'inline-block',
     cursor: 'pointer',

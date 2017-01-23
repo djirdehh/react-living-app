@@ -317,7 +317,7 @@ class NewCostOfLivingComponent extends React.Component {
 					</div>
 					{(this.props.newCitySlug) && <div style={final_container} className="container">
 						<div style={random_section}>
-							<p className='random-salary-text'>The median salary for a/an 
+							<p className='random-salary-text'>The median salary for a/an&nbsp;
 								<span className='random-position tooltip-top' onClick={this.changePosition}
 								data-tooltip='Click for another occupation!'> {this.state.position} 
 									<span style={super_script}> <i className="fa fa-user" aria-hidden="true"></i> </span>&nbsp;
