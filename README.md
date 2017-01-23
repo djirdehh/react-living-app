@@ -1,5 +1,6 @@
 <div align="center">
-  <img src="http://www.citii.io/static/media/logo.5d5d9eef.svg" style="max-width: 200px; width: 200px"/>
+<!--   <img src="http://www.citii.io/static/media/logo.5d5d9eef.svg" style="max-width: 200px; width: 200px"/> -->
+  ![React Logo](https://github.com/djirdehh/react-living-app/blob/master/src/logo.svg = 250x)
   <p>A React App that helps you compare the cost of living between cities worldwide</p>
 </div>
 
