@@ -1,12 +1,11 @@
 <div align="center">
 <img src="https://github.com/djirdehh/react-living-app/blob/master/src/logo_2.png" width="250"/>
 <p>A React App that helps you compare the cost of living between cities worldwide</p>
-<button class="btn btn-primary" type="button">Launch App</button>
 <a href="http://www.citii.io" class="btn btn-primary btn-md">Launch App</a>
 </div>
 -----------------------------
 ## citii.io
-
+A react app that uses Teleport's Public API's and Numbeo's 2017 Cost of Living data to provide a user intuitive process for users to compare the cost of living between different cities worldwide.
 
 
 <!-- <img src="http://www.citii.io/static/media/logo.5d5d9eef.svg" width="150"/> -->
