@@ -1,6 +1,7 @@
-<p align="center">
-  ![citii logo](https://github.com/djirdehh/react-living-app/blob/master/src/logo.png)
-</p>
+<div align="center">
+  <img src="http://www.citii.io/static/media/logo.f5b07ffe.png" />
+</div>
+
 
 
 
