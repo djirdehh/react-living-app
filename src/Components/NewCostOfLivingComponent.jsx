@@ -216,21 +216,45 @@ class NewCostOfLivingComponent extends React.Component {
 		}
 
 		if (this.props.newCitySlug) {
-			var xhReq = new XMLHttpRequest();
-			xhReq.open("GET", 'https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/images/', false);
-			xhReq.send(null);
-			var jsonObject = JSON.parse(xhReq.responseText);
-			image_url = jsonObject.photos[0].image.web;
+			// var xhReq = new XMLHttpRequest();
+			// xhReq.open("GET", 'https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/images/', false);
+			// xhReq.send(null);
+			// var jsonObject = JSON.parse(xhReq.responseText);
+			// image_url = jsonObject.photos[0].image.web;
 
-			var xhReq2 = new XMLHttpRequest();
-			xhReq2.open("GET", 'https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/scores/', false);
-			xhReq2.send(null);
-			var jsonObject2 = JSON.parse(xhReq2.responseText);
-			summary = jsonObject2.summary;
-			var div = document.createElement("div");
-			div.innerHTML = summary;
-			var text = div.textContent || div.innerText || "";
-			var text_split = text.split(".")[0];
+			// var xhReq2 = new XMLHttpRequest();
+			// xhReq2.open("GET", 'https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/scores/', false);
+			// xhReq2.send(null);
+			// var jsonObject2 = JSON.parse(xhReq2.responseText);
+			// summary = jsonObject2.summary;
+			// var div = document.createElement("div");
+			// div.innerHTML = summary;
+			// var text = div.textContent || div.innerText || "";
+			// var text_split = text.split(".")[0];
+
+			fetch('https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/images/')
+	          .then((response) => response.json())
+	          .then((responseData) => {
+	            image_url = responseData.photos[0].image.web;
+
+	            this.setState({
+	            	bannerImage: image_url
+	            });
+			})
+
+	        fetch('https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/scores/')
+	          .then((response) => response.json())
+	          .then((responseData) => {
+	          	let divElement = document.createElement("div");
+	          	divElement.innerHTML = responseData.summary;
+
+	          	let textElement = divElement.textContent || divElement.innerText || "";
+	          	let firstSentence = textElement.split(".")[0];
+
+	          	this.setState({
+	            	bannerIntro: firstSentence
+	            });
+			})
 		}
 
 		return (
@@ -241,10 +265,10 @@ class NewCostOfLivingComponent extends React.Component {
 
 				<div style={full_page_height}>
 					<div style={image_container} className="background-darken">
-						{(this.props.newCitySlug) && <img src={image_url} style={{width: '100%', opacity: '0.4', 'height': '30vh'}}/>}
+						{(this.props.newCitySlug) && <img src={this.state.bannerImage} style={{width: '100%', opacity: '0.4', 'height': '30vh'}}/>}
 						{(!this.props.newCitySlug) && <img src={banner_image_url} style={{width: '100%', opacity: '0.7', 'height': '30vh'}}/>}
 						{(this.props.newCitySlug) && <div className="banner-image-intro">{this.props.newCity}<br/>
-							{(this.props.newCitySlug != 'london') && <span className="banner-image-sub-intro">{text_split}.</span>}
+							{(this.props.newCitySlug != 'london') && <span className="banner-image-sub-intro">{this.state.bannerIntro}.</span>}
 							{(this.props.newCitySlug == 'london') && <span className="banner-image-sub-intro">London is one of the world's most inviting cities for startups, as well as home to world-class schools, universities and museums.</span>}
 						</div>}
 						{(!this.props.newCitySlug) && <div className="alternative-banner-image-intro">{this.props.newCity}</div>}
