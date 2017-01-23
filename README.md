@@ -4,7 +4,9 @@
 -----------------------------
 
 <div align="center">
-<img src="https://github.com/djirdehh/react-living-app/blob/master/src/logo.svg" width="150"/>
+<img src="http://www.citii.io/static/media/logo.5d5d9eef.svg" width="150"/>
+<p>A React App that helps you compare the cost of living between cities worldwide</p>
+<a href="http://www.citii.io">Launch App</a>
 </div>
 <!-- <div align="center"> -->
 <!-- <img src="https://github.com/djirdehh/react-living-app/blob/master/src/logo_2.png" width="250"/> -->
