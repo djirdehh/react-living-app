@@ -1,6 +1,6 @@
 <div align="center">
 <img src="https://github.com/djirdehh/react-living-app/blob/master/src/logo_2.png" width="250"/>
-<p>citii.io</p>
+<h1 class="lead">citii.io</h1>
 </div>
 -----------------------------
 
