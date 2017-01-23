@@ -1,7 +1,6 @@
 <div align="center">
-  <img src="http://www.citii.io/static/media/logo.f5b07ffe.png" />
-  <h2>citii.io</h2>
-  <p>A React App that helps you calculate the cost of living between different cities worldwide</p>
+  <img src="http://www.citii.io/static/media/logo.5d5d9eef.svg" />
+  <p>A React App that helps you compare the cost of living between cities worldwide</p>
 </div>
 
 
