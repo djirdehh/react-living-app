@@ -133,29 +133,59 @@ class NewCostOfLivingComponent extends React.Component {
 		super(props);
 
 		if (this.props.newCitySlug) {		
-			var xhReq3 = new XMLHttpRequest();
-			xhReq3.open("GET", 'https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/salaries/', false);
-			xhReq3.send(null);
-			var jsonObject3 = JSON.parse(xhReq3.responseText);
-			var randomSalaryObject = jsonObject3.salaries[Math.floor(Math.random()*jsonObject3.salaries.length)];
-			var randomPosition = randomSalaryObject.job.title;
-			var randomSalary = randomSalaryObject.salary_percentiles.percentile_50;
-			var roundedRandomSalary = (Math.round(randomSalary/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
 			this.state = {
-				listOfSalaries: jsonObject3,
-				position: randomPosition,
-				salary: roundedRandomSalary
+				bannerImage: '',
+				bannerIntro: '',
+				listOfSalaries: '',
+				position: '',
+				salary: ''
 			}
 		}
 
 		this.changePosition = this.changePosition.bind(this);
 	}
 
+	componentWillMount () {
+		fetch('https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/images/')
+          .then((response) => response.json())
+          .then((responseData) => {
+            this.setState({
+				bannerImage: responseData.photos[0].image.web
+			});
+		})
+
+        fetch('https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/scores/')
+          .then((response) => response.json())
+          .then((responseData) => {
+          	let divElement = document.createElement("div");
+          	divElement.innerHTML = responseData.summary;
+
+          	let textElement = divElement.textContent || divElement.innerText || "";
+          	let firstSentence = textElement.split(".")[0];
+
+          	this.setState({
+            	bannerIntro: firstSentence
+            });
+		})
+
+        fetch('https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/salaries/')
+          .then((response) => response.json())
+          .then((responseData) => {
+			let randomPosition = responseData.salaries[Math.floor(Math.random()*responseData.salaries.length)].job.title;
+			let randomSalary = responseData.salaries[Math.floor(Math.random()*responseData.salaries.length)].salary_percentiles.percentile_50;
+			let roundedRandomSalary = (Math.round(randomSalary/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+          	
+          	this.setState({
+          		listOfSalaries: responseData,
+            	position: randomPosition,
+            	salary: roundedRandomSalary
+            });
+		})
+	}
+
 	changePosition () {
-		let randomPositionObject = this.state.listOfSalaries.salaries[Math.floor(Math.random()*this.state.listOfSalaries.salaries.length)];
-		let randomPosition = randomPositionObject.job.title;
-		let randomSalary = randomPositionObject.salary_percentiles.percentile_50;
+		let randomPosition = this.state.listOfSalaries.salaries[Math.floor(Math.random()*this.state.listOfSalaries.salaries.length)].job.title;
+		let randomSalary = this.state.listOfSalaries.salaries[Math.floor(Math.random()*this.state.listOfSalaries.salaries.length)].salary_percentiles.percentile_50;
 		let roundedRandomSalary = (Math.round(randomSalary/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
 		this.setState({
@@ -165,7 +195,6 @@ class NewCostOfLivingComponent extends React.Component {
 	}
 
 	render () {
-		let cost_of_living_increase_format;
 		let rentPercentChange;
 		let rent_increase_format;
 		let groceriesPercentChange;
@@ -174,14 +203,6 @@ class NewCostOfLivingComponent extends React.Component {
 		let restaurant_increase_format;
 		let purchasingPercentChange;
 		let purchasing_increase_format;
-		let image_url;
-		let summary;
-
-		if (this.props.value > this.props.currentCostOfLiving) {
-			cost_of_living_increase_format  = true;
-		} else if (this.props.value < this.props.currentCostOfLiving) {
-			cost_of_living_increase_format = false;
-		}
 
 		if (this.props.rentPercentChange > 0) {
 			rentPercentChange = this.props.rentPercentChange;
@@ -213,48 +234,6 @@ class NewCostOfLivingComponent extends React.Component {
 		} else if (this.props.purchasingPercentChange < 0) {
 			purchasingPercentChange = -(this.props.purchasingPercentChange);
 			purchasing_increase_format = false;
-		}
-
-		if (this.props.newCitySlug) {
-			// var xhReq = new XMLHttpRequest();
-			// xhReq.open("GET", 'https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/images/', false);
-			// xhReq.send(null);
-			// var jsonObject = JSON.parse(xhReq.responseText);
-			// image_url = jsonObject.photos[0].image.web;
-
-			// var xhReq2 = new XMLHttpRequest();
-			// xhReq2.open("GET", 'https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/scores/', false);
-			// xhReq2.send(null);
-			// var jsonObject2 = JSON.parse(xhReq2.responseText);
-			// summary = jsonObject2.summary;
-			// var div = document.createElement("div");
-			// div.innerHTML = summary;
-			// var text = div.textContent || div.innerText || "";
-			// var text_split = text.split(".")[0];
-
-			fetch('https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/images/')
-	          .then((response) => response.json())
-	          .then((responseData) => {
-	            image_url = responseData.photos[0].image.web;
-
-	            this.setState({
-	            	bannerImage: image_url
-	            });
-			})
-
-	        fetch('https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/scores/')
-	          .then((response) => response.json())
-	          .then((responseData) => {
-	          	let divElement = document.createElement("div");
-	          	divElement.innerHTML = responseData.summary;
-
-	          	let textElement = divElement.textContent || divElement.innerText || "";
-	          	let firstSentence = textElement.split(".")[0];
-
-	          	this.setState({
-	            	bannerIntro: firstSentence
-	            });
-			})
 		}
 
 		return (
