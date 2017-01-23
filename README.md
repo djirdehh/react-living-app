@@ -1,10 +1,11 @@
 <div align="center">
 <img src="https://github.com/djirdehh/react-living-app/blob/master/src/logo_2.png" width="250"/>
 <p>A React App that helps you compare the cost of living between cities worldwide</p>
+<button class="btn btn-primary" type="button">Launch App</button>
 <a href="http://www.citii.io">Launch App</a>
 </div>
 -----------------------------
-
+## citii.io
 
 
 
