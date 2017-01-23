@@ -1,6 +1,6 @@
 <div align="center">
   <img src="http://www.citii.io/static/media/logo.f5b07ffe.png" />
-  <p>citii.io</p>
+  <p class="lead">citii.io</p>
   <p>A React App that helps you calculate the cost of living between different cities worldwide</p>
 </div>
 
