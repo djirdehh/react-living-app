@@ -1,9 +1,11 @@
 <div align="center">
 <img src="https://github.com/djirdehh/react-living-app/blob/master/src/logo_2.png" width="250"/>
-<h1 class="lead">citii.io</h1>
 </div>
 -----------------------------
 
+<div align="center">
+<img src="https://github.com/djirdehh/react-living-app/blob/master/src/logo.svg" width="150"/>
+</div>
 <!-- <div align="center"> -->
 <!-- <img src="https://github.com/djirdehh/react-living-app/blob/master/src/logo_2.png" width="250"/> -->
 <!--   <p>A React App that helps you compare the cost of living between cities worldwide</p> -->
