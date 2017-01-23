@@ -7,26 +7,8 @@ let inherit_height = {
 	height: 'inherit'
 }
 
-let intro = {
-	color: '#FFF',
-	fontFamily: 'Nunito, sans-serif',
-	fontSize: '55px',
-	letterSpacing: '5px',
-	textAlign: 'center',
-	margin: '12px'
-}
-
 let primary_color = {
 	color: 'rgb(234, 76, 136)'
-}
-
-let description = {
-	color: '#FFF',
-	fontFamily: 'Nunito, sans-serif',
-	fontSize: '14.5px',
-	textAlign: 'center',
-	marginTop: 0,
-	marginBottom: '25px'
 }
 
 let buttons_container = {
@@ -93,7 +75,7 @@ class WelcomeComponent extends React.Component {
 							</p>
 							<div style={buttons_container}>
 							<button style={details_button} onClick={this.openDetails}>Details</button>
-							<button className='continue-button' onClick={this.props.nextStep}>Continue</button>
+							<button className='continue-button' onClick={this.props.nextStep}>Start</button>
 							</div>
 						</div>
 					</div>

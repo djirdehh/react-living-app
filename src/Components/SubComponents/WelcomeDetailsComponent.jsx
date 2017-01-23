@@ -8,7 +8,7 @@ let padding_outline = {
 }
 
 let logo_properties = {
-  height: '70px',
+  height: '80px',
   display: 'block',
   margin: '0 auto'
 }
@@ -16,8 +16,9 @@ let logo_properties = {
 let intro = {
   color: '#E94A87',
   fontFamily: 'Nunito, sans-serif',
-  fontSize: '35px',
+  fontSize: '40px',
   fontWeight: '700',
+  letterSpacing: '5px',
   textAlign: 'center',
   margin: '5px'
 }
@@ -80,14 +81,14 @@ class WelcomeDetailsComponent extends React.Component {
           <div className="container welcome-details-block">
             <div className="row">
               <div style={padding_outline} className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <img src={logo} style={logo_properties} />
+                <img src={logo} style={logo_properties} alt='Project Logo'/>
                 <h3 style={intro}>citii.io</h3>
                 <p style={description}> The cost-of-living index, attributed to Russian economist A. A. Konüs, is a theoretical price index that measures 
                   the relative cost of living over time (or regions). The COF index has been widely used to show the difference in living between cities
                   and is the basis for this application.
                 </p>
                 <h3 style={sub_intro}>Cost Of Living Data</h3>
-                  <img src={teleport_logo} style={logo_properties} />
+                  <img src={teleport_logo} style={logo_properties} alt='Teleport Logo'/>
                 <p style={description}> The cost of living indices for the various cities were obtained from the largest free database of user contributed data 
                   about cities and countries worldwide <a style={link} href="https://www.numbeo.com/cost-of-living/">Numbeo</a><br /><br />
                   Further data with regards to income and living costs were obtained through <a style={link} href="https://developers.teleport.org/api/">Teleport's </a>
@@ -95,7 +96,7 @@ class WelcomeDetailsComponent extends React.Component {
                   their API's for the public to use.
                 </p>
                 <h3 style={sub_intro}>React</h3>
-                  <img src={react_logo} className='App-logo'/>
+                  <img src={react_logo} className='App-logo' alt='React Logo'/>
                 <p style={description}> This simple app marks my first foray into component oriented development and served as a great learning
                 experience in learning the main concepts behind React. React on it's own wouldn't generally be suitable for a fully scaled application but it handled well
                 for a simple app like this.

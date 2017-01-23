@@ -12,7 +12,7 @@ html, body, #root {
 }
 
 .welcome-logo {
-  height: 160px;
+  height: 150px;
   display: block;
   margin: 0 auto;
 }
@@ -637,7 +637,7 @@ a.social_links:hover {
   }
 
   .welcome-logo {
-    height: 130px;
+    height: 110px;
   }
 
   .welcome-intro {

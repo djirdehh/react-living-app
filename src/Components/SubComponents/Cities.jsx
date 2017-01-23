@@ -8,18 +8,6 @@ let section_width = {
 	margin: '0 auto'
 }
 
-let select_margin_bottom = {
-	marginBottom: '10px'
-}
-
-let align_middle = {
-	textAlign: 'center'
-}
-
-let full_width = {
-	width: '100%'
-}
-
 var CitiesField = React.createClass({
 	displayName: 'CitiesField',
 	propTypes: {

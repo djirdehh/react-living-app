@@ -146,41 +146,67 @@ class NewCostOfLivingComponent extends React.Component {
 	}
 
 	componentWillMount () {
-		fetch('https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/images/')
-          .then((response) => response.json())
-          .then((responseData) => {
-            this.setState({
-				bannerImage: responseData.photos[0].image.web
-			});
-		})
+		if (this.props.newCitySlug) {
+			fetch('https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/images/')
+	          .then((response) => {
+		          	if (!response.ok) {
+		          		throw Error('Something went wrong retreiving an image :(');
+		          	}
+		          	return response.json();
+	        	})
+	          .then((responseData) => {
+		            this.setState({
+						bannerImage: responseData.photos[0].image.web
+					});
+				})
+	          .catch((error) => {
+	          		console.log(error);
+	        	});
 
-        fetch('https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/scores/')
-          .then((response) => response.json())
-          .then((responseData) => {
-          	let divElement = document.createElement("div");
-          	divElement.innerHTML = responseData.summary;
+	        fetch('https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/scores/')
+	          .then((response) => {
+	          		if (!response.ok) {
+		          		throw Error('Something went wrong retreiving city information :(');
+		          	}
+		          	return response.json();
+	        	})
+	          .then((responseData) => {
+		          	let divElement = document.createElement("div");
+		          	divElement.innerHTML = responseData.summary;
 
-          	let textElement = divElement.textContent || divElement.innerText || "";
-          	let firstSentence = textElement.split(".")[0];
+		          	let textElement = divElement.textContent || divElement.innerText || "";
+		          	let firstSentence = textElement.split(".")[0];
 
-          	this.setState({
-            	bannerIntro: firstSentence
-            });
-		})
+		          	this.setState({
+		            	bannerIntro: firstSentence
+		            });
+				})
+	          .catch((error) => {
+	          		console.log(error);
+	        	});
 
-        fetch('https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/salaries/')
-          .then((response) => response.json())
-          .then((responseData) => {
-			let randomPosition = responseData.salaries[Math.floor(Math.random()*responseData.salaries.length)].job.title;
-			let randomSalary = responseData.salaries[Math.floor(Math.random()*responseData.salaries.length)].salary_percentiles.percentile_50;
-			let roundedRandomSalary = (Math.round(randomSalary/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-          	
-          	this.setState({
-          		listOfSalaries: responseData,
-            	position: randomPosition,
-            	salary: roundedRandomSalary
-            });
-		})
+	        fetch('https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/salaries/')
+	          .then((response) => {
+	        		if (!response.ok) {
+		          		throw Error('Something went wrong retreiving city information :(');
+		          	}
+		          	return response.json();
+	        	})
+	          .then((responseData) => {
+					let randomPosition = responseData.salaries[Math.floor(Math.random()*responseData.salaries.length)].job.title;
+					let randomSalary = responseData.salaries[Math.floor(Math.random()*responseData.salaries.length)].salary_percentiles.percentile_50;
+					let roundedRandomSalary = (Math.round(randomSalary/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		          	
+		          	this.setState({
+		          		listOfSalaries: responseData,
+		            	position: randomPosition,
+		            	salary: roundedRandomSalary
+		            });
+				})
+	          .catch((error) => {
+	          		console.log(error);
+	        	});
+	    }
 	}
 
 	changePosition () {
@@ -244,11 +270,11 @@ class NewCostOfLivingComponent extends React.Component {
 
 				<div style={full_page_height}>
 					<div style={image_container} className="background-darken">
-						{(this.props.newCitySlug) && <img src={this.state.bannerImage} style={{width: '100%', opacity: '0.4', 'height': '30vh'}}/>}
-						{(!this.props.newCitySlug) && <img src={banner_image_url} style={{width: '100%', opacity: '0.7', 'height': '30vh'}}/>}
+						{(this.props.newCitySlug) && <img src={this.state.bannerImage} style={{width: '100%', opacity: '0.4', 'height': '30vh'}} alt='City Banner'/>}
+						{(!this.props.newCitySlug) && <img src={banner_image_url} style={{width: '100%', opacity: '0.7', 'height': '30vh'}} alt='Stock Banner'/>}
 						{(this.props.newCitySlug) && <div className="banner-image-intro">{this.props.newCity}<br/>
-							{(this.props.newCitySlug != 'london') && <span className="banner-image-sub-intro">{this.state.bannerIntro}.</span>}
-							{(this.props.newCitySlug == 'london') && <span className="banner-image-sub-intro">London is one of the world's most inviting cities for startups, as well as home to world-class schools, universities and museums.</span>}
+							{(this.props.newCitySlug !== 'london') && <span className="banner-image-sub-intro">{this.state.bannerIntro}.</span>}
+							{(this.props.newCitySlug === 'london') && <span className="banner-image-sub-intro">London is one of the world's most inviting cities for startups, as well as home to world-class schools, universities and museums.</span>}
 						</div>}
 						{(!this.props.newCitySlug) && <div className="alternative-banner-image-intro">{this.props.newCity}</div>}
 					</div>

@@ -38,7 +38,7 @@ let next_button_overlay = {
 let hidden_button = {
 	color: '#2c3338',
     borderRadius: '60px',
-    padding: '10px',
+    padding: '22.5px',
     background: '#2c3338',
     margin: '10px'
 }
@@ -94,6 +94,7 @@ class CityDropDownComponent extends React.Component {
 							<Cities label="States" onChange={this.props.onChange} searchable />
 
 							{(this.state.selected === '') && <p style={hidden_text}>.</p>}
+							{((this.state.selected === '') && this.props.stepNumber === 2) && <div style={hidden_button}></div>}
 							{(this.state.selected !== '') && <p style={result_text}>{this.state.selected}</p>}
 							
 							<div style={buttons_overlay}>
