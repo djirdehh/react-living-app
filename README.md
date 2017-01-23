@@ -1,6 +1,6 @@
 <div align="center">
   <img src="http://www.citii.io/static/media/logo.f5b07ffe.png" />
-  ## citii.io
+  citii.io
 </div>
 
 
