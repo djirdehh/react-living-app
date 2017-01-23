@@ -49,7 +49,9 @@ class App extends React.Component {
     let currencyType;
     const dataSet = require('../data/cost_of_living_indices.json');
 
-    currencyType = dataSet[e].currency_type;
+    if (e !== undefined) {
+      currencyType = dataSet[e].currency_type;
+    }
 
     this.setState({
       currentCity: e,

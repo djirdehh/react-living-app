@@ -3,12 +3,6 @@ import FooterComponent from './SubComponents/FooterComponent.jsx';
 import WelcomeDetailsComponent from './SubComponents/WelcomeDetailsComponent.jsx';
 import logo from '../logo.png';
 
-let logo_properties = {
-	height: '160px',
-	display: 'block',
-	margin: '0 auto'
-}
-
 let inherit_height = {
 	height: 'inherit'
 }
@@ -16,8 +10,8 @@ let inherit_height = {
 let intro = {
 	color: '#FFF',
 	fontFamily: 'Nunito, sans-serif',
-	fontSize: '50px',
-	fontWeight: '700',
+	fontSize: '55px',
+	letterSpacing: '5px',
 	textAlign: 'center',
 	margin: '12px'
 }
@@ -91,9 +85,9 @@ class WelcomeComponent extends React.Component {
 				{(!this.state.openDetails) && <div className="aligner">
 					<div>
 						<div className='welcome-block'>
-							<img src={logo} style={logo_properties} alt='logo' />
-							<h3 style={intro}>citii.<span style={primary_color}>io</span></h3>
-							<p style={description}> Have you ever thought how far your current cost of living will go in another city?
+							<img src={logo} className='welcome-logo' alt='logo' />
+							<h3 className='welcome-intro'>citii.<span style={primary_color}>io</span></h3>
+							<p className='welcome-description'> Have you ever thought how far your current cost of living will go in another city?
 							This simple app will calculate how much more (or less) you would need
 							to maintain the same standard of living in another city!
 							</p>

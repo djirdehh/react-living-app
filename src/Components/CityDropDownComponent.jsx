@@ -1,5 +1,5 @@
 import React from 'react';
-import States from './SubComponents/States.jsx';
+import Cities from './SubComponents/Cities.jsx';
 
 let intro = {
 	color: '#FFF',
@@ -91,7 +91,7 @@ class CityDropDownComponent extends React.Component {
 							{(this.props.stepNumber === 2) && <p style={intro}>What city do you currently live in?</p>}
 							{(this.props.stepNumber === 4) && <p style={intro}>What city do you wish to live in?</p>}
 							
-							<States label="States" onChange={this.props.onChange} searchable />
+							<Cities label="States" onChange={this.props.onChange} searchable />
 
 							{(this.state.selected === '') && <p style={hidden_text}>.</p>}
 							{(this.state.selected !== '') && <p style={result_text}>{this.state.selected}</p>}

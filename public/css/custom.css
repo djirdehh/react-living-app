@@ -11,6 +11,31 @@ html, body, #root {
   position: relative;
 }
 
+.welcome-logo {
+  height: 160px;
+  display: block;
+  margin: 0 auto;
+}
+
+.welcome-intro {
+  color: #FFF;
+  font-family: Nunito, sans-serif;
+  font-size: 55px;
+  letter-spacing: 5px;
+  text-align: center;
+  margin: 12px;
+}
+
+.welcome-description {
+  color: #FFF;
+  font-family: Nunito, sans-serif;
+  font-size: 14.5px;
+  line-height: 1.65;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
 .name-section {
   position: absolute; 
   bottom: 0px;
@@ -609,6 +634,20 @@ a.social_links:hover {
     background: #2C3338;
     width: 100% !important;
     padding: 10px;
+  }
+
+  .welcome-logo {
+    height: 130px;
+  }
+
+  .welcome-intro {
+    font-size: 35px;
+    margin: 5px;
+  }
+
+  .welcome-description {
+    font-size: 12px;
+    margin-bottom: 10px;
   }
 
   .welcome-details-block {
