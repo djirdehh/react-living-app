@@ -3,12 +3,12 @@
 <p>A React App that helps you compare the cost of living between cities worldwide</p>
 <a href="http://www.citii.io" class="btn btn-primary btn-md">Launch App</a>
 </div>
------------------------------
+---
 ## citii.io
 <table>
 <tr>
 <td>
-citii.io is a React App that uses Teleport's Public API's and Numbeo's 2017 Cost of Living data to allow users to compare the cost of living between different cities. The cost of living of a particular city takes into account the city's rent, groceries and dining out costs as well as local purchasing power.
+citii.io is a React App that uses Teleport's Public API's and Numbeo's 2017 Cost of Living data to allow users to compare the cost of living between different cities taking into account the differences between rent, groceries and dining out costs as well as local purchasing power.
 </td>
 </tr>
 </table>
@@ -16,7 +16,12 @@ citii.io is a React App that uses Teleport's Public API's and Numbeo's 2017 Cost
 ![Demo](https://cloud.githubusercontent.com/assets/12476938/22228725/fcdda7d6-e1a0-11e6-8295-55d5d4a57f5e.gif)
 <!-- <img src="http://www.citii.io/static/media/logo.5d5d9eef.svg" width="150"/> -->
 
+## Configuration
+🔩 Bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)
 
+📱 Made responsive with [Twitter Bootstrap](http://getbootstrap.com/)
+
+🎉 Deployed with [Heroku](https://blog.heroku.com/deploying-react-with-zero-configuration)
 
 
 
