@@ -19,7 +19,7 @@
 <table>
 <tr>
 <td>
-<p align="center'>
+<p align='center'>
 <strong>citii.io</strong> is a react app that allows users to compare the cost of living between cities.
 </p>
 </td>
