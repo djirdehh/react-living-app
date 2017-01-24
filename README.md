@@ -16,15 +16,15 @@
 <p><a href="http://www.citii.io" class="btn btn-primary btn-md">Launch App</a></p>
 </div>
 ---
-<p align='center'>
-<table>
-<tr>
-<td>
-<strong>citii.io</strong> is a react app that allows users to compare the cost of living between cities.
-</td>
-</tr>
-</table>
-</p>
+<div align='center'>
+  <table>
+  <tr>
+  <td>
+  <strong>citii.io</strong> is a react app that allows users to compare the cost of living between cities.
+  </td>
+  </tr>
+  </table>
+</div>
 
 🔩 Bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)
 
