@@ -24,7 +24,7 @@ citii.io is a React App that allows users to compare the cost of living between 
 🎉 Deployed with [Heroku](https://blog.heroku.com/deploying-react-with-zero-configuration)
 
 ## Demo
-![Citii Demo](https://gfycat.com/FrightenedClassicGourami)
+<img src="https://github.com/djirdehh/react-living-app/blob/master/src/citii-movie.gif" />
 
 ## Mobile Display
 <div align="center">
