@@ -7,11 +7,10 @@
 <p><a href="http://www.citii.io" class="btn btn-primary btn-md">Launch App</a></p>
 </div>
 ---
-## citii.io
 <table>
 <tr>
 <td>
-citii.io is a React App that allows users to compare the cost of living between cities by taking into account rent, groceries, dining out costs, local purchasing power, etc.
+citii.io is a react app that allows users to compare the cost of living between cities
 </td>
 </tr>
 </table>
@@ -43,4 +42,4 @@ citii.io is a React App that allows users to compare the cost of living between 
 * `npm start` runs the app in development mode. Open `http://localhost:3000` to view it in the browser and the page will reload if you make edits
 
 ## Improvements
-- [] Unit Tests!
+- [ ] Unit Tests!
