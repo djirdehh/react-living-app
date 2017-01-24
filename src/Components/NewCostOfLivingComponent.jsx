@@ -307,7 +307,7 @@ class NewCostOfLivingComponent extends React.Component {
 									<i style={up_arrow_index} className="fa fa-arrow-up" aria-hidden="true"></i>
 								</p>}
 								{(!groceries_increase_format) && <p style={percent_index_text} className="tooltip-bottom"
-								data-tooltip={'Groceries are cheaper by'+groceriesPercentChange+'% in '+this.props.newCity+'.'} > {groceriesPercentChange}%
+								data-tooltip={'Groceries are cheaper by '+groceriesPercentChange+'% in '+this.props.newCity+'.'} > {groceriesPercentChange}%
 									<i style={down_arrow_index} className="fa fa-arrow-down" aria-hidden="true"></i>
 								</p>}
 							</div>
