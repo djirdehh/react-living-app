@@ -1,5 +1,7 @@
 <div align="center">
+<p>
 <img src="https://github.com/djirdehh/react-living-app/blob/master/src/citii_logo.png" width="250"/>
+</p>
 
 <p>
 <a href="https://www.npmjs.com/package/npm">
