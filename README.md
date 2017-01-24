@@ -31,7 +31,11 @@ citii.io is a React App that allows users to compare the cost of living between 
   <img src="https://cloud.githubusercontent.com/assets/12476938/22230928/7421f5ce-e1ae-11e6-8c9e-02d6d14842fe.png"   width="500"/>
 </div>
 
-
+## To run it locally
+* Clone this repo `git@github.com:djirdehh/react-living-app.git`
+* `cd react-living-app`
+* If you don't have create-react-app installed: run `npm install`
+* `npm start` will runs the app in the development mode. Open http://localhost:3000 to view it in the browser and the page will reload if you make edits
 
 
 
