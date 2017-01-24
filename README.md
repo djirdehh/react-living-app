@@ -1,14 +1,17 @@
 <div align="center">
 <img src="https://github.com/djirdehh/react-living-app/blob/master/src/citii_logo.png" width="250"/>
 
-
+<p>
 <a href="https://www.npmjs.com/package/npm">
   <img alt="npm version" src="https://img.shields.io/npm/v/npm.svg?colorB=32cd32" />
 </a>
+</p>
 
+<p>
 <a href="https://opensource.org/licenses/MIT">
   <img alt="MIT License" src="https://img.shields.io/github/license/mashape/apistatus.svg" />
 </a>
+</p>
 
 <p><a href="http://www.citii.io" class="btn btn-primary btn-md">Launch App</a></p>
 </div>
