@@ -13,7 +13,7 @@ citii.io is a React App that uses Teleport's Public API's and Numbeo's 2017 Cost
 </tr>
 </table>
 
-
+![Demo](https://cloud.githubusercontent.com/assets/12476938/22228725/fcdda7d6-e1a0-11e6-8295-55d5d4a57f5e.gif)
 <!-- <img src="http://www.citii.io/static/media/logo.5d5d9eef.svg" width="150"/> -->
 
 
