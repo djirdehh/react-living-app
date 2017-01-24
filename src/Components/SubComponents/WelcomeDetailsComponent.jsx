@@ -89,8 +89,8 @@ class WelcomeDetailsComponent extends React.Component {
                 </p>
                 <h3 style={sub_intro}>Cost Of Living Data</h3>
                   <img src={teleport_logo} style={logo_properties} alt='Teleport Logo'/>
-                <p style={description}> The cost of living indices for the various cities were obtained from the largest free database of user contributed data 
-                  about cities and countries worldwide <a style={link} href="https://www.numbeo.com/cost-of-living/">Numbeo</a><br /><br />
+                <p style={description}> The 2017 cost of living indices were obtained from the largest database of user contributed data 
+                  about cities and countries worldwide <a style={link} href="https://www.numbeo.com/cost-of-living/">Numbeo</a>.<br /><br />
                   Further data with regards to income and living costs were obtained through <a style={link} href="https://developers.teleport.org/api/">Teleport's </a>
                   Public API's. <a style={link} href="https://developers.teleport.org/">Teleport</a> is the largest and most up-to-date quality of life database and provide 
                   their API's for the public to use.
@@ -98,8 +98,8 @@ class WelcomeDetailsComponent extends React.Component {
                 <h3 style={sub_intro}>React</h3>
                   <img src={react_logo} className='App-logo' alt='React Logo'/>
                 <p style={description}> This simple app marks my first foray into component oriented development and served as a great learning
-                experience in learning the main concepts behind React. React on it's own wouldn't generally be suitable for a fully scaled application but it handled well
-                for a simple app like this.
+                experience in learning the main concepts behind React. React on it's own wouldn't generally be suitable for a fully scaled application but it handled very
+                well for a simple app like this.
                 </p>
                 <div style={buttons_container}>
                   <button style={continue_button} onClick={this.props.closeDetails}>Return</button>
