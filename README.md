@@ -4,12 +4,12 @@
 </p>
 
 <p>
-<a href="https://www.npmjs.com/package/npm">
-  <img alt="npm version" src="https://img.shields.io/npm/v/npm.svg?colorB=32cd32" />
+<a href="">
+  <img alt="first release" src="https://img.shields.io/badge/release-v1.0-brightgreen.svg" />
 </a>
 
-<a href="https://opensource.org/licenses/MIT">
-  <img alt="MIT License" src="https://img.shields.io/github/license/mashape/apistatus.svg" />
+<a href="https://www.npmjs.com/package/npm">
+  <img alt="npm version" src="https://img.shields.io/npm/v/npm.svg" />
 </a>
 </p>
 
@@ -20,7 +20,7 @@
   <table>
   <tr>
   <td>
-  <strong>  Citii</strong> is a react app that allows users to compare and analyze the cost of living between cities around the world.  
+  <strong>Citii</strong> is a react app that allows users to compare and analyze the cost of living between cities around the world.  
   </td>
   </tr>
   </table>
@@ -49,7 +49,11 @@
 * Clone this repo `git@github.com:djirdehh/react-living-app.git`
 * `cd react-living-app`
 * If you don't have create-react-app installed run `npm install create-react-app`
-* `npm start` runs the app in development mode. Open `http://localhost:3000` to view it in the browser and the page will reload if you make edits
+* `npm start` runs the app in development mode. Open `http://localhost:3000` to view it in the browser and the page should reload once you make edits
+
+<p>
+Head over to <a href="https://github.com/facebookincubator/create-react-app">Create React App</a> to see a list of things you can do.
+</p>
 
 ## Improvements
 - [ ] Unit Tests!
