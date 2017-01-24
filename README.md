@@ -27,8 +27,9 @@ citii.io is a React App that allows users to compare the cost of living between 
 ![Demo](https://cloud.githubusercontent.com/assets/12476938/22228725/fcdda7d6-e1a0-11e6-8295-55d5d4a57f5e.gif)
 
 ## Mobile Display
-
-
+<div align="center">
+  <img src="https://cloud.githubusercontent.com/assets/12476938/22230928/7421f5ce-e1ae-11e6-8c9e-02d6d14842fe.png"   width="500"/>
+</div>
 
 
 
