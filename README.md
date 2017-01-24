@@ -20,7 +20,7 @@
   <table>
   <tr>
   <td>
-  <strong>Citii</strong> is a react app that allows users to compare and analyze the cost of living between cities around the world.
+  <strong>  Citii</strong> is a react app that allows users to compare and analyze the cost of living between cities around the world.  
   </td>
   </tr>
   </table>
@@ -30,7 +30,7 @@
 
 🔍 Search optimized with [React Select](https://github.com/JedWatson/react-select)
 
-📊 Cost of living data obtained from [Numbeo](https://www.numbeo.com/cost-of-living/)
+📊 2017 cost of living indices obtained from [Numbeo](https://www.numbeo.com/cost-of-living/)
 
 🎈 Cross referenced with further income data from [Teleport API's](https://developers.teleport.org/api/)
 
