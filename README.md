@@ -20,7 +20,7 @@
   <table>
   <tr>
   <td>
-  <strong>citii.io</strong> is a react app that allows users to compare the cost of living between cities.
+  <strong>Citii</strong> is a react app that allows users to compare and analyze the cost of living between cities around the world.
   </td>
   </tr>
   </table>
