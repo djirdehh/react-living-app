@@ -16,15 +16,15 @@
 <p><a href="http://www.citii.io" class="btn btn-primary btn-md">Launch App</a></p>
 </div>
 ---
+<p align='center'>
 <table>
 <tr>
 <td>
-<p align='center'>
 <strong>citii.io</strong> is a react app that allows users to compare the cost of living between cities.
-</p>
 </td>
 </tr>
 </table>
+</p>
 
 🔩 Bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)
 
@@ -41,12 +41,11 @@
 ## Demo
 <img src="https://github.com/djirdehh/react-living-app/blob/master/src/citii-movie.gif" />
 
-## Mobile Display
 <div align="center">
   <img src="https://cloud.githubusercontent.com/assets/12476938/22233667/d440002a-e1bf-11e6-903b-21fedb84c1c3.png"/>
 </div>
 
-## To run it locally
+## To run locally
 * Clone this repo `git@github.com:djirdehh/react-living-app.git`
 * `cd react-living-app`
 * If you don't have create-react-app installed run `npm install create-react-app`
