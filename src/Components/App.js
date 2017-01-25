@@ -1,8 +1,8 @@
 import React from 'react';
-import WelcomeComponent from './WelcomeComponent.jsx'
-import CurrentCostOfLivingComponent from './CurrentCostOfLivingComponent.jsx'
-import CityDropDownComponent from './CityDropDownComponent.jsx'
-import NewCostOfLivingComponent from './NewCostOfLivingComponent.jsx'
+import WelcomeComponent from './WelcomeComponent.js'
+import CurrentCostOfLivingComponent from './CurrentCostOfLivingComponent.js'
+import CityDropDownComponent from './CityDropDownComponent.js'
+import NewCostOfLivingComponent from './NewCostOfLivingComponent.js'
 
 class App extends React.Component {
 

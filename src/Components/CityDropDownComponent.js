@@ -1,5 +1,5 @@
 import React from 'react';
-import Cities from './SubComponents/Cities.jsx';
+import Cities from './SubComponents/Cities.js';
 
 let intro = {
 	color: '#FFF',

@@ -1,6 +1,6 @@
 import React from 'react';
-import FooterComponent from './SubComponents/FooterComponent.jsx';
-import WelcomeDetailsComponent from './SubComponents/WelcomeDetailsComponent.jsx';
+import FooterComponent from './SubComponents/FooterComponent.js';
+import WelcomeDetailsComponent from './SubComponents/WelcomeDetailsComponent.js';
 import logo from '../logo.png';
 
 let inherit_height = {
