@@ -16,6 +16,7 @@
 <p><a href="http://www.citii.io" class="btn btn-primary btn-md">Launch App</a></p>
 </div>
 ---
+## The App
 <div align='center'>
   <table>
   <tr>
@@ -26,17 +27,18 @@
   </table>
 </div>
 
-🔩 Bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)
+* 🔩 Bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)
 
-🔍 Search optimized with [React Select](https://github.com/JedWatson/react-select)
+* 🔍 Search optimized with [React Select](https://github.com/JedWatson/react-select)
 
-📊 2017 cost of living indices obtained from [Numbeo](https://www.numbeo.com/cost-of-living/)
+* 📊 2017 cost of living indices obtained from [Numbeo](https://www.numbeo.com/cost-of-living/)
 
-🎈 Cross referenced with further income data from [Teleport API's](https://developers.teleport.org/api/)
+* 🎈 Cross referenced with further income data from [Teleport API's](https://developers.teleport.org/api/)
 
-📱 Made responsive with [Twitter Bootstrap](http://getbootstrap.com/)
+* 📱 Made responsive with [Twitter Bootstrap](http://getbootstrap.com/)
 
-🎉 Deployed with [Heroku](https://blog.heroku.com/deploying-react-with-zero-configuration)
+* 🎉 Deployed with [Heroku](https://blog.heroku.com/deploying-react-with-zero-configuration)
+
 
 ## Demo
 <img src="https://github.com/djirdehh/react-living-app/blob/master/src/citii-movie.gif" />
