@@ -85,21 +85,10 @@ class App extends React.Component {
       newCostOfLiving = currentCostOfLiving;
     }
 
-    if (dataSet[newCity].rent_index !== dataSet[currentCity].rent_index) {
-      rentPercentChange = Math.round(((dataSet[newCity].rent_index - dataSet[currentCity].rent_index)/dataSet[currentCity].rent_index) * 100);
-    }
-
-    if (dataSet[newCity].groceries_index !== dataSet[currentCity].groceries_index) {
-      groceriesPercentChange = Math.round(((dataSet[newCity].groceries_index - dataSet[currentCity].groceries_index)/dataSet[currentCity].groceries_index) * 100);
-    }
-
-    if (dataSet[newCity].restaurant_index !== dataSet[currentCity].restaurant_index) {
-      restaurantPercentChange = Math.round(((dataSet[newCity].restaurant_index - dataSet[currentCity].restaurant_index)/dataSet[currentCity].restaurant_index) * 100);
-    }
-
-    if (dataSet[newCity].purchasing_index !== dataSet[currentCity].purchasing_index) {
-      purchasingPercentChange = Math.round(((dataSet[newCity].purchasing_index - dataSet[currentCity].purchasing_index)/dataSet[currentCity].purchasing_index) * 100);
-    }
+    rentPercentChange = Math.round(((dataSet[newCity].rent_index - dataSet[currentCity].rent_index)/dataSet[currentCity].rent_index) * 100);
+    groceriesPercentChange = Math.round(((dataSet[newCity].groceries_index - dataSet[currentCity].groceries_index)/dataSet[currentCity].groceries_index) * 100);
+    restaurantPercentChange = Math.round(((dataSet[newCity].restaurant_index - dataSet[currentCity].restaurant_index)/dataSet[currentCity].restaurant_index) * 100);
+    purchasingPercentChange = Math.round(((dataSet[newCity].purchasing_index - dataSet[currentCity].purchasing_index)/dataSet[currentCity].purchasing_index) * 100);
 
     this.setState({
       newCitySlug: dataSet[newCity].slug,

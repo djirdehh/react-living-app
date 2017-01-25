@@ -103,6 +103,17 @@ let percent_index_text = {
 	margin: '0 auto'
 }
 
+let percent_index_text_no_change = {
+	color: 'antiquewhite',
+	fontFamily: 'Nunito, sans-serif',
+	fontSize: '15px',
+	textAlign: 'center',
+	width: '50%',
+	marginBottom: '0',
+	display: 'block',
+	margin: '0 auto'
+}
+
 let up_arrow_index = {
 	color: 'rgb(61, 242, 255)',
 	fontSize: '20px',
@@ -233,7 +244,7 @@ class NewCostOfLivingComponent extends React.Component {
 		if (this.props.rentPercentChange > 0) {
 			rentPercentChange = this.props.rentPercentChange;
 			rent_increase_format = true;
-		} else if (this.props.rentPercentChange < 0) {
+		} else if (this.props.rentPercentChange <= 0) {
 			rentPercentChange = -(this.props.rentPercentChange);
 			rent_increase_format = false;
 		}
@@ -241,7 +252,7 @@ class NewCostOfLivingComponent extends React.Component {
 		if (this.props.groceriesPercentChange > 0) {
 			groceriesPercentChange = this.props.groceriesPercentChange;
 			groceries_increase_format = true;
-		} else if (this.props.groceriesPercentChange < 0) {
+		} else if (this.props.groceriesPercentChange <= 0) {
 			groceriesPercentChange = -(this.props.groceriesPercentChange);
 			groceries_increase_format = false;
 		}
@@ -249,7 +260,7 @@ class NewCostOfLivingComponent extends React.Component {
 		if (this.props.restaurantPercentChange > 0) {
 			restaurantPercentChange = this.props.restaurantPercentChange;
 			restaurant_increase_format = true;
-		} else if (this.props.restaurantPercentChange < 0) {
+		} else if (this.props.restaurantPercentChange <= 0) {
 			restaurantPercentChange = -(this.props.restaurantPercentChange);
 			restaurant_increase_format = false;
 		}
@@ -257,7 +268,7 @@ class NewCostOfLivingComponent extends React.Component {
 		if (this.props.purchasingPercentChange > 0) {
 			purchasingPercentChange = this.props.purchasingPercentChange;
 			purchasing_increase_format = true;
-		} else if (this.props.purchasingPercentChange < 0) {
+		} else if (this.props.purchasingPercentChange <= 0) {
 			purchasingPercentChange = -(this.props.purchasingPercentChange);
 			purchasing_increase_format = false;
 		}
@@ -292,9 +303,12 @@ class NewCostOfLivingComponent extends React.Component {
 								data-tooltip={'Rent is '+rentPercentChange+'% more expensive in '+this.props.newCity+'!'}> {rentPercentChange}%
 									<i style={up_arrow_index} className="fa fa-arrow-up" aria-hidden="true"></i>
 								</p>}
-								{(!rent_increase_format) && <p style={percent_index_text} className="tooltip-bottom" 
+								{(!rent_increase_format && this.props.rentPercentChange !== 0) && <p style={percent_index_text} className="tooltip-bottom" 
 								data-tooltip={'Rent is cheaper by '+rentPercentChange+'% in '+this.props.newCity+'.'}> {rentPercentChange}%
 									<i style={down_arrow_index} className="fa fa-arrow-down" aria-hidden="true"></i>
+								</p>}
+								{(!rent_increase_format && this.props.rentPercentChange === 0) && <p style={percent_index_text_no_change} className="tooltip-bottom" 
+								data-tooltip={'Rent is the same!'}> It's the same!
 								</p>}
 							</div>
 							<div className='col-xs-12 col-sm-6 col-md-6 col-lg-3 mobilePadding'>
@@ -306,9 +320,12 @@ class NewCostOfLivingComponent extends React.Component {
 								data-tooltip={'Groceries are '+groceriesPercentChange+'% more expensive in '+this.props.newCity+'!'} > {groceriesPercentChange}%
 									<i style={up_arrow_index} className="fa fa-arrow-up" aria-hidden="true"></i>
 								</p>}
-								{(!groceries_increase_format) && <p style={percent_index_text} className="tooltip-bottom"
+								{(!groceries_increase_format && this.props.groceriesPercentChange !== 0) && <p style={percent_index_text} className="tooltip-bottom"
 								data-tooltip={'Groceries are cheaper by '+groceriesPercentChange+'% in '+this.props.newCity+'.'} > {groceriesPercentChange}%
 									<i style={down_arrow_index} className="fa fa-arrow-down" aria-hidden="true"></i>
+								</p>}
+								{(!groceries_increase_format && this.props.groceriesPercentChange === 0) && <p style={percent_index_text_no_change} className="tooltip-bottom"
+								data-tooltip={'Groceries are the same!'} > It's the same!
 								</p>}
 							</div>
 							<div className='col-xs-12 col-sm-6 col-md-6 col-lg-3 mobilePadding'>
@@ -320,9 +337,12 @@ class NewCostOfLivingComponent extends React.Component {
 								data-tooltip={'Dining out is '+restaurantPercentChange+'% more expensive in '+this.props.newCity+'!'} > {restaurantPercentChange}%
 									<i style={up_arrow_index} className="fa fa-arrow-up" aria-hidden="true"></i>
 								</p>}
-								{(!restaurant_increase_format) && <p style={percent_index_text} className="tooltip-bottom" 
+								{(!restaurant_increase_format && this.props.restaurantPercentChange !== 0) && <p style={percent_index_text} className="tooltip-bottom" 
 								data-tooltip={'Dining out is cheaper by '+restaurantPercentChange+'% in '+this.props.newCity+'.'} > {restaurantPercentChange}%
 									<i style={down_arrow_index} className="fa fa-arrow-down" aria-hidden="true"></i>
+								</p>}
+								{(!restaurant_increase_format && this.props.restaurantPercentChange === 0) && <p style={percent_index_text_no_change} className="tooltip-bottom" 
+								data-tooltip={'Dining out is the same!'} > It's the same!
 								</p>}
 							</div>
 							<div className='col-xs-12 col-sm-6 col-md-6 col-lg-3 mobilePadding'>
@@ -334,9 +354,12 @@ class NewCostOfLivingComponent extends React.Component {
 								data-tooltip={'Purchasing Power (i.e. the number of of goods/services that can be purchased by a unit of currency) is '+purchasingPercentChange+'% higher in '+this.props.newCity+'.'} > {purchasingPercentChange}%
 									<i style={down_arrow_index} className="fa fa-arrow-up" aria-hidden="true"></i>
 								</p>}
-								{(!purchasing_increase_format) && <p style={percent_index_text} className="tooltip-bottom"
+								{(!purchasing_increase_format && this.props.purchasingPercentChange !== 0) && <p style={percent_index_text} className="tooltip-bottom"
 								data-tooltip={'Purchasing Power (i.e. the number of of goods/services that can be purchased by a unit of currency) is '+purchasingPercentChange+'% lower in '+this.props.newCity+'!'} > {purchasingPercentChange}%
 									<i style={up_arrow_index} className="fa fa-arrow-down" aria-hidden="true"></i>
+								</p>}
+								{(!purchasing_increase_format && this.props.purchasingPercentChange === 0) && <p style={percent_index_text_no_change} className="tooltip-bottom"
+								data-tooltip={'The purchasing power is the same!'} > It's the same!
 								</p>}
 							</div>
 						</div>
