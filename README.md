@@ -28,20 +28,15 @@
 </div>
 
 * 🔩 Bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)
-
 * 🔍 Search optimized with [React Select](https://github.com/JedWatson/react-select)
-
 * 📊 2017 cost of living indices obtained from [Numbeo](https://www.numbeo.com/cost-of-living/)
-
 * 🎈 Cross referenced with further income data from [Teleport API's](https://developers.teleport.org/api/)
-
 * 📱 Made responsive with [Twitter Bootstrap](http://getbootstrap.com/)
-
 * 🎉 Deployed with [Heroku](https://blog.heroku.com/deploying-react-with-zero-configuration)
 
 
 ## Demo
-<img src="https://github.com/djirdehh/react-living-app/blob/master/src/citii-movie.gif" />
+<img src="https://gfycat.com/SickJitteryDesertpupfish" />
 
 <div align="center">
   <img src="https://cloud.githubusercontent.com/assets/12476938/22233667/d440002a-e1bf-11e6-903b-21fedb84c1c3.png"/>
