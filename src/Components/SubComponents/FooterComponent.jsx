@@ -12,6 +12,9 @@ class FooterComponent extends React.Component {
 					<a href="http://hassandjirdeh.com" target="_blank" className="social_links">
 				        <i id="social-link" className="fa fa-h-square fa-2x social" aria-hidden="true"></i>
 				    </a>
+				    <a href="https://github.com/djirdehh" target="_blank" className="social_links">
+				        <i id="social-link" className="fa fa-github-square fa-2x social" aria-hidden="true"></i>
+				    </a>
 					<a href="https://ca.linkedin.com/in/hassandjirdeh" target="_blank" className="social_links">
 				        <i id="social-link" className="fa fa-linkedin-square fa-2x social" aria-hidden="true"></i>
 				     </a>
