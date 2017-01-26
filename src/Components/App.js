@@ -170,6 +170,8 @@ class App extends React.Component {
                          restaurantPercentChange={this.state.restaurantPercentChange}
                          purchasingPercentChange={this.state.purchasingPercentChange}
                          resetToFirstStep={this.resetToFirstStep}/>
+      default:
+        return null;
     }
   }
 }
