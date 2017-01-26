@@ -68,7 +68,6 @@ exports.ALL = [
     { value: 'New York, NY, United States', label: 'New York, NY, United States' },
     { value: 'Oakland, CA, United States', label: 'Oakland, CA, United States' },
     { value: 'Oklahoma City, OK, United States', label: 'Oklahoma City, OK, United States' },
-    { value: 'Omaha, NE, United States', label: 'Omaha, NE, United States' },
     { value: 'Orlando, FL, United States', label: 'Orlando, FL, United States' },
     { value: 'Ottawa, Canada', label: 'Ottawa, Canada' },
     { value: 'Pensacola, FL, United States', label: 'Pensacola, FL, United States' },
