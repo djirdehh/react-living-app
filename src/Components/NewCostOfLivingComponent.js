@@ -156,7 +156,7 @@ class NewCostOfLivingComponent extends React.Component {
 		this.changePosition = this.changePosition.bind(this);
 	}
 
-	componentWillMount () {
+	componentDidMount () {
 		if (this.props.newCitySlug) {
 			fetch('https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/images/')
 	          .then((response) => {
