@@ -52,7 +52,6 @@ exports.ALL = [
     { value: 'Louisville, KY, United States', label: 'Louisville, KY, United States' },
     { value: 'Madison, WI, United States', label: 'Madison, WI, United States' },
     { value: 'Melbourne, FL, United States', label: 'Melbourne, FL, United States' },
-    { value: 'Memphis, TN, United States', label: 'Memphis, TN, United States' },
     { value: 'Mexico City, Mexico', label: 'Mexico City, Mexico' },
     { value: 'Miami, FL, United States', label: 'Miami, FL, United States' },
     { value: 'Milwaukee, WI, United States', label: 'Milwaukee, WI, United States' },
