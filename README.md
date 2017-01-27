@@ -37,8 +37,11 @@
 
 ## Demo
 <!-- <img src="https://cloud.githubusercontent.com/assets/12476938/22228725/fcdda7d6-e1a0-11e6-8295-55d5d4a57f5e.gif" /> -->
-
 <div align="center">
+  <img src="https://cloud.githubusercontent.com/assets/12476938/22361107/9bc99d8e-e424-11e6-8327-0c5d31f5ca15.png"/>
+</div>
+
+<div align="center">`
   <img src="https://cloud.githubusercontent.com/assets/12476938/22233667/d440002a-e1bf-11e6-903b-21fedb84c1c3.png"/>
 </div>
 
