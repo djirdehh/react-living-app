@@ -41,7 +41,7 @@
   <img src="https://cloud.githubusercontent.com/assets/12476938/22361107/9bc99d8e-e424-11e6-8327-0c5d31f5ca15.png"/>
 </div>
 
-<div align="center">`
+<div align="center">
   <img src="https://cloud.githubusercontent.com/assets/12476938/22233667/d440002a-e1bf-11e6-903b-21fedb84c1c3.png"/>
 </div>
 
