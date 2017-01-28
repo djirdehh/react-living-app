@@ -15,28 +15,33 @@ describe('App', () => {
     expect(RenderedApp).toBeInstanceOf(App);
   });
 
-  it('sets nextStep from 1 to 2 correctly', () => {
-    RenderedApp.nextStep();
-    expect(RenderedApp.state.step).toBe(2);
+  describe('#nextStep', () => {
+    it('sets nextStep from 1 to 2 correctly', () => {
+      RenderedApp.nextStep();
+      expect(RenderedApp.state.step).toBe(2);
+    });
   });
 
-  it('resetToFirstStep when called', () => {
-    RenderedApp.nextStep();
-    RenderedApp.resetToFirstStep();
-    expect(RenderedApp.state.step).toBe(1);
+  describe('#previousStep', () => {
+    it('sets previousStep from 2 to 1 correctly', () => {
+      RenderedApp.nextStep();
+      RenderedApp.previousStep();
+      expect(RenderedApp.state.step).toBe(1);
+    });
+
+    it('sets previousStep from 1 to 1 correctly', () => {
+      RenderedApp.nextStep();
+      RenderedApp.previousStep();
+      RenderedApp.previousStep();
+      expect(RenderedApp.state.step).toBe(1);
+    });
   });
 
-  it('sets previousStep from 2 to 1 correctly', () => {
-    RenderedApp.nextStep();
-    RenderedApp.previousStep();
-    expect(RenderedApp.state.step).toBe(1);
+  describe('#resetToFirstStep', () => {
+    it('sets the step back to 1 correctly', () => {
+      RenderedApp.nextStep();
+      RenderedApp.resetToFirstStep();
+      expect(RenderedApp.state.step).toBe(1);
+    });
   });
-
-  it('sets previousStep from 1 to 1 correctly', () => {
-    RenderedApp.nextStep();
-    RenderedApp.previousStep();
-    RenderedApp.previousStep();
-    expect(RenderedApp.state.step).toBe(1);
-  });
-
 });
