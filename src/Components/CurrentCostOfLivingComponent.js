@@ -7,6 +7,11 @@ let intro = {
 	textAlign: 'center'
 }
 
+let intro_annual = {
+	fontWeight: '600',
+	cursor: 'pointer'
+}
+
 let menu_button_container = {
 	position: 'absolute',
     zIndex: '999',
@@ -96,7 +101,9 @@ class CurrentCostOfLivingComponent extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<p style={intro}>What's your current annual salary?</p>
+							<p style={intro}>What's your current 
+								<span style={intro_annual} className='tooltip-top' data-tooltip='The comparison assumes net earnings after income tax!'> annual </span> 
+							salary?</p>
 							<div style={input_overlay}>
 								<select style={select} value={this.props.currencyValue} onChange={this.props.onChangeOfCurrencyType}>
 									<option>{this.props.currencyValue}</option>
