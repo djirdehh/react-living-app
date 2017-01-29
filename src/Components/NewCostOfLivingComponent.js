@@ -156,7 +156,7 @@ class NewCostOfLivingComponent extends React.Component {
 		this.changePosition = this.changePosition.bind(this);
 	}
 
-	componentWillMount () {
+	componentDidMount () {
 		if (this.props.newCitySlug) {
 			fetch('https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/images/')
 	          .then((response) => {
@@ -204,8 +204,9 @@ class NewCostOfLivingComponent extends React.Component {
 		          	return response.json();
 	        	})
 	          .then((responseData) => {
-					let randomPosition = responseData.salaries[Math.floor(Math.random()*responseData.salaries.length)].job.title;
-					let randomSalary = responseData.salaries[Math.floor(Math.random()*responseData.salaries.length)].salary_percentiles.percentile_50;
+	          		let randomObject = responseData.salaries[Math.floor(Math.random()*responseData.salaries.length)];
+	     			let randomPosition = randomObject.job.title;
+	     			let randomSalary = randomObject.salary_percentiles.percentile_50;
 					let roundedRandomSalary = (Math.round(randomSalary/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		          	
 		          	this.setState({
@@ -221,8 +222,9 @@ class NewCostOfLivingComponent extends React.Component {
 	}
 
 	changePosition () {
-		let randomPosition = this.state.listOfSalaries.salaries[Math.floor(Math.random()*this.state.listOfSalaries.salaries.length)].job.title;
-		let randomSalary = this.state.listOfSalaries.salaries[Math.floor(Math.random()*this.state.listOfSalaries.salaries.length)].salary_percentiles.percentile_50;
+		let randomObject = this.state.listOfSalaries.salaries[Math.floor(Math.random()*this.state.listOfSalaries.salaries.length)];
+		let randomPosition = randomObject.job.title;
+		let randomSalary = randomObject.salary_percentiles.percentile_50;
 		let roundedRandomSalary = (Math.round(randomSalary/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
 		this.setState({

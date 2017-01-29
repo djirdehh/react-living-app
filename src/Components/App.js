@@ -69,7 +69,7 @@ class App extends React.Component {
     const currentCostOfLiving = Number(this.state.currentCostOfLiving);
     const currentCity = this.state.currentCity;
     const newCity = this.state.newCity;
-    
+
     let newCostOfLiving;
     let rentPercentChange;
     let groceriesPercentChange;
@@ -110,7 +110,9 @@ class App extends React.Component {
 
   previousStep () {
     this.setState({
-      step: this.state.step - 1
+      step: this.state.step > 2
+        ? this.state.step - 1
+        : 1
     });
   }
 
@@ -170,6 +172,8 @@ class App extends React.Component {
                          restaurantPercentChange={this.state.restaurantPercentChange}
                          purchasingPercentChange={this.state.purchasingPercentChange}
                          resetToFirstStep={this.resetToFirstStep}/>
+      default:
+        return null;
     }
   }
 }
