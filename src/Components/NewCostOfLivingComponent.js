@@ -373,7 +373,7 @@ class NewCostOfLivingComponent extends React.Component {
 								data-tooltip='Click for another occupation!'> {this.state.position} 
 									<span style={super_script}> <i className="fa fa-user" aria-hidden="true"></i> </span>&nbsp;
 								</span> 
-							in {this.props.newCity} is around <span className='random-salary'>${this.state.salary}</span></p>
+							in {this.props.newCity} is around <span className='random-salary'>USD {this.state.salary}</span></p>
 						</div>
 					</div>}
 				</div>
