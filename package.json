@@ -4,7 +4,8 @@
   "private": true,
   "devDependencies": {
     "react-scripts": "0.8.4",
-    "react-select": "^1.0.0-rc.2"
+    "react-select": "^1.0.0-rc.2",
+    "sw-precache": "^4.3.0"
   },
   "dependencies": {
     "jquery": "^3.1.1",
@@ -16,7 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && sw-precache --verbose --config=sw-precache-config.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

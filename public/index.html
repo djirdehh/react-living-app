@@ -3,16 +3,31 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <meta prefix="og: http://ogp.me/ns#" property="og:title" content="Citii - Comparing the Cost of Living"/>
     <meta prefix="og: http://ogp.me/ns#" property="og:description" content="A ReactJS app that helps you compare and analyze the cost of living between different cities worldwide."/>
-    <meta prefix="og: http://ogp.me/ns#" property="og:image" content="http://www.citii.io/img/meta_landing_screen.png" />
-    <meta prefix="og: http://ogp.me/ns#" property="og:url" content="http://www.citii.io" />
+    <meta prefix="og: http://ogp.me/ns#" property="og:image" content="%PUBLIC_URL%/img/meta_landing_screen.png" />
+    <meta prefix="og: http://ogp.me/ns#" property="og:url" content="https://www.citii.io" />
     <meta prefix="og: http://ogp.me/ns#" property="og:site_name" content="Citii"/>
+
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <!-- <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico"> -->
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%/icons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%/icons/favicon-16x16.png" sizes="16x16">
+    <link rel="mask-icon" href="%PUBLIC_URL%/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="apple-mobile-web-app-title" content="Citii">
+    <meta name="application-name" content="Citii">
+    <meta name="theme-color" content="#2c3338">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
     <!--
-      Notice the use of %PUBLIC_URL% in the tag above.
+      Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
 
@@ -57,5 +72,12 @@
       To begin the development, run `npm start`.
       To create a production bundle, use `npm run build`.
     -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/service-worker.js');
+        });
+      }
+    </script>
   </body>
 </html>
