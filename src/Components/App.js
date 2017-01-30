@@ -16,7 +16,6 @@ class App extends React.Component {
       currentCity: '',
       newCity: '',
       newCitySlug: '',
-      exactNewCostOfLivingValue: 0,
       newCostOfLiving: 0,
       rentPercentChange: 0,
       groceriesPercentChange: 0,
@@ -93,7 +92,6 @@ class App extends React.Component {
 
     this.setState({
       newCitySlug: dataSet[newCity].slug,
-      exactNewCostOfLivingValue: newCostOfLiving,
       newCostOfLiving: (Math.round(newCostOfLiving/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
       rentPercentChange: rentPercentChange,
       groceriesPercentChange: groceriesPercentChange,
@@ -126,7 +124,6 @@ class App extends React.Component {
       currentCity: '',
       newCity: '',
       newCitySlug: '',
-      exactNewCostOfLivingValue: 0,
       newCostOfLiving: 0,
       rentPercentChange: 0,
       groceriesPercentChange: 0,
@@ -166,9 +163,7 @@ class App extends React.Component {
                       resetToFirstStep={this.resetToFirstStep}/>
       case 5:
         return <NewCostOfLivingComponent value={this.state.newCostOfLiving}
-                         exactNewCostOfLivingValue={this.state.exactNewCostOfLivingValue}
                          currentCostOfLiving={this.state.currentCostOfLiving}
-                         currentCity={this.state.currentCity}
                          newCity={this.state.newCity}
                          newCitySlug={this.state.newCitySlug}
                          currencyType={this.state.currencyType}
