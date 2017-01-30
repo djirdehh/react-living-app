@@ -699,6 +699,11 @@ a.social_links:hover {
 
   .random-salary-text {
     padding: 10px;
+    font-size: 15px;
+  }
+
+  .random-salary {
+    font-size: 16px;
   }
 
   .checkbox-label {

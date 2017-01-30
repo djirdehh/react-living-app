@@ -82,7 +82,7 @@ let alternative_comparable_salary_text = {
 }
 
 let sub_salary_text = {
-	color: 'antiquewhite',
+	color: '#FFF',
 	textAlign: 'center',
 	fontFamily: 'Nunito, sans-serif',
 	fontSize: '20px',
@@ -99,7 +99,7 @@ let icon_index = {
 }
 
 let percent_index_text = {
-	color: 'antiquewhite',
+	color: '#FFF',
 	fontFamily: 'Nunito, sans-serif',
 	fontSize: '30px',
 	textAlign: 'center',
@@ -142,6 +142,10 @@ let random_section = {
 let super_script = {
 	verticalAlign: 'super',
 	fontSize: '15px'
+}
+
+let font_weight_bold = {
+	fontWeight: '700'
 }
 
 class NewCostOfLivingComponent extends React.Component {
@@ -360,9 +364,9 @@ class NewCostOfLivingComponent extends React.Component {
 						<p style={intro}>To have the same standard of living, a comparable salary would be</p>
 							{(this.state.currentCurrency !== this.state.targetCurrency) && <div> 
 							{(this.props.newCitySlug) && <p style={comparable_salary_text}>≈ {this.state.currencyType} {this.state.value} 
-														<sub className='tooltip-bottom' data-tooltip='Click to convert the currency!' onClick={this.changeCurrencyTypeAndValue}><i className="fa fa-exchange exchange-icon" aria-hidden="true"></i></sub></p>}
+														<sub style={font_weight_bold} className='tooltip-bottom' data-tooltip='Click to convert the currency!' onClick={this.changeCurrencyTypeAndValue}><i className="fa fa-exchange exchange-icon" aria-hidden="true"></i></sub></p>}
 							{(!this.props.newCitySlug) && <p style={alternative_comparable_salary_text}>≈ {this.state.currencyType} {this.state.value} 
-														<sub className='tooltip-bottom' data-tooltip='Click to convert the currency!' onClick={this.changeCurrencyTypeAndValue}><i className="fa fa-exchange exchange-icon" aria-hidden="true"></i></sub></p>}
+														<sub style={font_weight_bold} className='tooltip-bottom' data-tooltip='Click to convert the currency!' onClick={this.changeCurrencyTypeAndValue}><i className="fa fa-exchange exchange-icon" aria-hidden="true"></i></sub></p>}
 							</div>}
 							{(this.state.currentCurrency === this.state.targetCurrency) && <div> 
 							{(this.props.newCitySlug) && <p style={comparable_salary_text} onClick={this.changeCurrencyTypeAndValue}>≈ {this.state.currencyType} {this.state.value}</p>}
