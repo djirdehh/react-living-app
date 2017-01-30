@@ -106,7 +106,6 @@ exports.ALL = [
     { value: 'Campinas, Brazil', label: 'Campinas, Brazil' },
     { value: 'Curitiba, Brazil', label: 'Curitiba, Brazil' },
     { value: 'Florianopolis, Brazil', label: 'Florianopolis, Brazil' },
-    { value: 'Fortaleza, Brazil', label: 'Fortaleza, Brazil' },
     { value: 'Natal, Brazil', label: 'Natal' },
     { value: 'Porto Alegre, Brazil', label: 'Porto Alegre, Brazil' },
     { value: 'Recife, Brazil', label: 'Recife, Brazil' },

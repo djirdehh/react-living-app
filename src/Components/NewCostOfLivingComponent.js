@@ -1,4 +1,5 @@
 import React from 'react';
+import fx from 'money';
 import banner_image_url from '../sky_banner.png';
 
 let full_page_height = {
@@ -64,7 +65,11 @@ let comparable_salary_text = {
 	fontFamily: 'Nunito, sans-serif',
 	fontSize: '50px',
 	textAlign: 'center',
-	marginBottom: '3rem'
+	marginBottom: '3rem',
+	cursor: 'pointer',
+	maxWidth: '500px',
+    marginLeft: 'auto',
+    marginRight: 'auto'
 }
 
 let alternative_comparable_salary_text = {
@@ -72,7 +77,11 @@ let alternative_comparable_salary_text = {
 	fontFamily: 'Nunito, sans-serif',
 	fontSize: '50px',
 	textAlign: 'center',
-	marginBottom: '7rem'
+	marginBottom: '7rem',
+	cursor: 'pointer',
+	maxWidth: '500px',
+    marginLeft: 'auto',
+    marginRight: 'auto'
 }
 
 let sub_salary_text = {
@@ -143,20 +152,48 @@ class NewCostOfLivingComponent extends React.Component {
 	constructor (props) {
 		super(props);
 
+		const dataSet = require('../data/cost_of_living_indices.json');
+
 		if (this.props.newCitySlug) {		
 			this.state = {
 				bannerImage: '',
 				bannerIntro: '',
 				listOfSalaries: '',
 				position: '',
-				salary: ''
+				targetCurrency: dataSet[this.props.newCity].currency_type,
+				salary: '',
+				exactValue: this.props.exactNewCostOfLivingValue,
+				value: this.props.value,
+				currencyType: this.props.currencyType
+			}
+		} else {
+			this.state = {
+				exactValue: this.props.exactNewCostOfLivingValue,
+				value: this.props.value,
+				currencyType: this.props.currencyType
 			}
 		}
 
 		this.changePosition = this.changePosition.bind(this);
+		this.changeCurrencyTypeAndValue = this.changeCurrencyTypeAndValue.bind(this);
 	}
 
 	componentDidMount () {
+		fetch('https://openexchangerates.org/api/latest.json?app_id=0cc840f2153c4d378b1a2687918435e7')
+	          .then((response) => {
+	        		if (!response.ok) {
+		          		throw Error('Something went wrong retreiving city information :(');
+		          	}
+		          	return response.json();
+	        	})
+	          .then((responseData) => {
+	    			fx.base = responseData.base;
+	    			fx.rates = responseData.rates;
+				})
+	          .catch((error) => {
+	          		console.log(error);
+	        	});
+
 		if (this.props.newCitySlug) {
 			fetch('https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/images/')
 	          .then((response) => {
@@ -207,12 +244,14 @@ class NewCostOfLivingComponent extends React.Component {
 	          		let randomObject = responseData.salaries[Math.floor(Math.random()*responseData.salaries.length)];
 	     			let randomPosition = randomObject.job.title;
 	     			let randomSalary = randomObject.salary_percentiles.percentile_50;
-					let roundedRandomSalary = (Math.round(randomSalary/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+					// let roundedRandomSalary = (Math.round(randomSalary/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		          	
+		          	let configuredSalary = fx.convert(randomSalary, {from: 'USD', to: this.state.targetCurrency});
+		          	let roundedConfiguredSalary = (Math.round(configuredSalary/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		          	this.setState({
 		          		listOfSalaries: responseData,
 		            	position: randomPosition,
-		            	salary: roundedRandomSalary
+		            	salary: roundedConfiguredSalary
 		            });
 				})
 	          .catch((error) => {
@@ -225,11 +264,35 @@ class NewCostOfLivingComponent extends React.Component {
 		let randomObject = this.state.listOfSalaries.salaries[Math.floor(Math.random()*this.state.listOfSalaries.salaries.length)];
 		let randomPosition = randomObject.job.title;
 		let randomSalary = randomObject.salary_percentiles.percentile_50;
-		let roundedRandomSalary = (Math.round(randomSalary/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		// let roundedRandomSalary = (Math.round(randomSalary/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+		let configuredSalary = fx.convert(randomSalary, {from: 'USD', to: this.state.targetCurrency});
+		let roundedConfiguredSalary = (Math.round(configuredSalary/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
 		this.setState({
 			position: randomPosition,
-			salary: roundedRandomSalary
+			salary: roundedConfiguredSalary
+		})
+	}
+
+	changeCurrencyTypeAndValue () {
+		let originalCurrencyType = this.state.currencyType;
+		let originalValue = this.state.exactValue;
+		let newCurrencyType;
+		const dataSet = require('../data/cost_of_living_indices.json');
+
+		if (this.state.currencyType === this.props.currencyType) {
+			newCurrencyType = dataSet[this.props.newCity].currency_type;
+		} else if (this.state.currencyType !== this.props.currencyType) {
+			newCurrencyType = dataSet[this.props.currentCity].currency_type;
+		}
+
+		let exactValue = fx.convert(originalValue, {from: originalCurrencyType, to: newCurrencyType});
+
+		this.setState({
+			exactValue: exactValue,
+			value: (Math.round(exactValue/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+			currencyType: newCurrencyType
 		})
 	}
 
@@ -293,8 +356,10 @@ class NewCostOfLivingComponent extends React.Component {
 					</div>
 					<div style={middle_container} className="container">
 						<p style={intro}>To have the same standard of living, a comparable salary would be</p>
-							{(this.props.newCitySlug) && <p style={comparable_salary_text}>≈ {this.props.currencyType} {this.props.value}</p>}
-							{(!this.props.newCitySlug) && <p style={alternative_comparable_salary_text}>≈ {this.props.currencyType} {this.props.value}</p>}
+							{(this.props.newCitySlug) && <p className='tooltip-bottom' style={comparable_salary_text} onClick={this.changeCurrencyTypeAndValue} 
+														data-tooltip='Click to change the currency!'>≈ {this.state.currencyType} {this.state.value}</p>}
+							{(!this.props.newCitySlug) && <p className='tooltip-bottom' style={alternative_comparable_salary_text} onClick={this.changeCurrencyTypeAndValue}
+														data-tooltip='Click to change the currency!'>≈ {this.state.currencyType} {this.state.value}</p>}
 						<div className='row'>
 							<div className='col-xs-12 col-sm-6 col-md-6 col-lg-3 mobilePadding'>
 								<div style={icon_index} id="icon-box">
@@ -373,7 +438,7 @@ class NewCostOfLivingComponent extends React.Component {
 								data-tooltip='Click for another occupation!'> {this.state.position} 
 									<span style={super_script}> <i className="fa fa-user" aria-hidden="true"></i> </span>&nbsp;
 								</span> 
-							in {this.props.newCity} is around <span className='random-salary'>USD {this.state.salary}</span></p>
+							in {this.props.newCity} is around <span className='random-salary'>{this.state.targetCurrency} {this.state.salary}</span></p>
 						</div>
 					</div>}
 				</div>
