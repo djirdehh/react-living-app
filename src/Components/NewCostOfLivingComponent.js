@@ -1,8 +1,6 @@
 import React from 'react';
 import banner_image_url from '../sky_banner.png';
 
-var fx = require("money");
-
 let full_page_height = {
 	height: '100%'
 }
@@ -67,36 +65,12 @@ let comparable_salary_text = {
 	fontSize: '50px',
 	textAlign: 'center',
 	marginBottom: '3rem',
-	cursor: 'pointer',
-	maxWidth: '500px',
-    marginLeft: 'auto',
-    marginRight: 'auto'
-}
-
-let comparable_salary_text_2 = {
-	color: '#3DF2FF',
-	fontFamily: 'Nunito, sans-serif',
-	fontSize: '50px',
-	textAlign: 'center',
-	marginBottom: '3rem',
 	maxWidth: '500px',
     marginLeft: 'auto',
     marginRight: 'auto'
 }
 
 let alternative_comparable_salary_text = {
-	color: '#3DF2FF',
-	fontFamily: 'Nunito, sans-serif',
-	fontSize: '50px',
-	textAlign: 'center',
-	marginBottom: '7rem',
-	cursor: 'pointer',
-	maxWidth: '500px',
-    marginLeft: 'auto',
-    marginRight: 'auto'
-}
-
-let alternative_comparable_salary_text_2 = {
 	color: '#3DF2FF',
 	fontFamily: 'Nunito, sans-serif',
 	fontSize: '50px',
@@ -185,6 +159,7 @@ class NewCostOfLivingComponent extends React.Component {
 				position: '',
 				currentCurrency: dataSet[this.props.currentCity].currency_type,
 				targetCurrency: dataSet[this.props.newCity].currency_type,
+				currencyResponseRates: '',
 				salary: '',
 				exactValue: this.props.exactNewCostOfLivingValue,
 				value: this.props.value,
@@ -192,8 +167,9 @@ class NewCostOfLivingComponent extends React.Component {
 			}
 		} else {
 			this.state = {
-				currentCurrency: dataSet[this.props.currentCurrency].currency_type,
+				currentCurrency: dataSet[this.props.currentCity].currency_type,
 				targetCurrency: dataSet[this.props.newCity].currency_type,
+				currencyResponseRates: '',
 				exactValue: this.props.exactNewCostOfLivingValue,
 				value: this.props.value,
 				currencyType: this.props.currencyType
@@ -208,13 +184,14 @@ class NewCostOfLivingComponent extends React.Component {
 		fetch('https://openexchangerates.org/api/latest.json?app_id=0cc840f2153c4d378b1a2687918435e7')
 	          .then((response) => {
 	        		if (!response.ok) {
-		          		throw Error('Something went wrong retreiving city information :(');
+		          		throw Error('Something went wrong retreiving currency information :(');
 		          	}
 		          	return response.json();
 	        	})
 	          .then((responseData) => {
-	    			fx.base = responseData.base;
-	    			fx.rates = responseData.rates;
+	    			this.setState({
+						currencyResponseRates: responseData.rates
+					});
 				})
 	          .catch((error) => {
 	          		console.log(error);
@@ -270,10 +247,10 @@ class NewCostOfLivingComponent extends React.Component {
 	          		let randomObject = responseData.salaries[Math.floor(Math.random()*responseData.salaries.length)];
 	     			let randomPosition = randomObject.job.title;
 	     			let randomSalary = randomObject.salary_percentiles.percentile_50;
-					// let roundedRandomSalary = (Math.round(randomSalary/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		          	
-		          	let configuredSalary = fx.convert(randomSalary, {from: 'USD', to: this.state.targetCurrency});
+		          	let configuredSalary = (randomSalary/this.state.currencyResponseRates['USD'])*this.state.currencyResponseRates[this.state.targetCurrency];
 		          	let roundedConfiguredSalary = (Math.round(configuredSalary/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		          	
 		          	this.setState({
 		          		listOfSalaries: responseData,
 		            	position: randomPosition,
@@ -290,9 +267,8 @@ class NewCostOfLivingComponent extends React.Component {
 		let randomObject = this.state.listOfSalaries.salaries[Math.floor(Math.random()*this.state.listOfSalaries.salaries.length)];
 		let randomPosition = randomObject.job.title;
 		let randomSalary = randomObject.salary_percentiles.percentile_50;
-		// let roundedRandomSalary = (Math.round(randomSalary/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-		let configuredSalary = fx.convert(randomSalary, {from: 'USD', to: this.state.targetCurrency});
+		let configuredSalary = (randomSalary/this.state.currencyResponseRates['USD'])*this.state.currencyResponseRates[this.state.targetCurrency];
 		let roundedConfiguredSalary = (Math.round(configuredSalary/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
 		this.setState({
@@ -313,7 +289,7 @@ class NewCostOfLivingComponent extends React.Component {
 			newCurrencyType = dataSet[this.props.currentCity].currency_type;
 		}
 
-		let exactValue = fx.convert(originalValue, {from: originalCurrencyType, to: newCurrencyType});
+		let exactValue = (originalValue/this.state.currencyResponseRates[originalCurrencyType])*this.state.currencyResponseRates[newCurrencyType];
 
 		this.setState({
 			exactValue: exactValue,
@@ -383,14 +359,14 @@ class NewCostOfLivingComponent extends React.Component {
 					<div style={middle_container} className="container">
 						<p style={intro}>To have the same standard of living, a comparable salary would be</p>
 							{(this.state.currentCurrency !== this.state.targetCurrency) && <div> 
-							{(this.props.newCitySlug) && <p className='tooltip-bottom' style={comparable_salary_text} onClick={this.changeCurrencyTypeAndValue} 
-														data-tooltip='Click to change the currency!'>≈ {this.state.currencyType} {this.state.value}</p>}
-							{(!this.props.newCitySlug) && <p className='tooltip-bottom' style={alternative_comparable_salary_text} onClick={this.changeCurrencyTypeAndValue}
-														data-tooltip='Click to change the currency!'>≈ {this.state.currencyType} {this.state.value}</p>}
+							{(this.props.newCitySlug) && <p style={comparable_salary_text}>≈ {this.state.currencyType} {this.state.value} 
+														<sub className='tooltip-bottom' data-tooltip='Click to convert the currency!' onClick={this.changeCurrencyTypeAndValue}><i className="fa fa-exchange exchange-icon" aria-hidden="true"></i></sub></p>}
+							{(!this.props.newCitySlug) && <p style={alternative_comparable_salary_text}>≈ {this.state.currencyType} {this.state.value} 
+														<sub className='tooltip-bottom' data-tooltip='Click to convert the currency!' onClick={this.changeCurrencyTypeAndValue}><i className="fa fa-exchange exchange-icon" aria-hidden="true"></i></sub></p>}
 							</div>}
 							{(this.state.currentCurrency === this.state.targetCurrency) && <div> 
-							{(this.props.newCitySlug) && <p style={comparable_salary_text_2} onClick={this.changeCurrencyTypeAndValue}>≈ {this.state.currencyType} {this.state.value}</p>}
-							{(!this.props.newCitySlug) && <p style={alternative_comparable_salary_text_2} onClick={this.changeCurrencyTypeAndValue}>≈ {this.state.currencyType} {this.state.value}</p>}
+							{(this.props.newCitySlug) && <p style={comparable_salary_text} onClick={this.changeCurrencyTypeAndValue}>≈ {this.state.currencyType} {this.state.value}</p>}
+							{(!this.props.newCitySlug) && <p style={alternative_comparable_salary_text} onClick={this.changeCurrencyTypeAndValue}>≈ {this.state.currencyType} {this.state.value}</p>}
 							</div>}
 						<div className='row'>
 							<div className='col-xs-12 col-sm-6 col-md-6 col-lg-3 mobilePadding'>

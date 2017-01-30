@@ -403,6 +403,21 @@ a.social_links:hover {
   transition:.5s;
 }
 
+.exchange-icon {
+  font-size: 25px !important;
+  padding-left: 10px;
+  cursor: pointer;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
+.exchange-icon:hover {
+  color: #EA4C88;
+}
+
 /*Tooltips*/
 
 /* Base styles for the element that has a tooltip */
