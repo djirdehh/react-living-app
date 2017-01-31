@@ -13,7 +13,7 @@ class App extends React.Component {
     currentCity: '',
     newCity: '',
     newCitySlug: '',
-      exactNewCostOfLivingValue: 0,
+    exactNewCostOfLivingValue: 0,
     newCostOfLiving: 0,
     rentPercentChange: 0,
     groceriesPercentChange: 0,
@@ -125,7 +125,7 @@ class App extends React.Component {
   render () {
     switch (this.state.step) {
       case 1:
-        return <WelcomeComponent nextStep={this.nextStep}/>
+        return <WelcomeComponent nextStep={this.nextStep} />
       case 2:
         return <CityDropDownComponent id='cityDropdown'
                       value={this.state.currentCity}
@@ -134,15 +134,15 @@ class App extends React.Component {
                       nextStep={this.nextStep}
                       previousStep={this.previousStep}
                       stepNumber={this.state.step}
-                      resetToFirstStep={this.resetToFirstStep}/>
+                      resetToFirstStep={this.resetToFirstStep} />
       case 3:
         return <CurrentCostOfLivingComponent value={this.state.currentCostOfLiving} 
-                          currencyValue={this.state.currencyType}
-                          onChange={this.handleCurrentCostOfLivingInput} 
-                          onChangeOfCurrencyType={this.handleCurrencyType}
-                          nextStep={this.nextStep}
-                          previousStep={this.previousStep}
-                          resetToFirstStep={this.resetToFirstStep}/>
+                      currencyValue={this.state.currencyType}
+                      onChange={this.handleCurrentCostOfLivingInput} 
+                      onChangeOfCurrencyType={this.handleCurrencyType}
+                      nextStep={this.nextStep}
+                      previousStep={this.previousStep}
+                      resetToFirstStep={this.resetToFirstStep} />
       case 4:
         return <CityDropDownComponent id='cityDropdown'
                       value={this.state.newCity} 
@@ -150,20 +150,20 @@ class App extends React.Component {
                       nextStep={this.calculateNewCostOfLivingAndNextStep}
                       previousStep={this.previousStep}
                       stepNumber={this.state.step}
-                      resetToFirstStep={this.resetToFirstStep}/>
+                      resetToFirstStep={this.resetToFirstStep} />
       case 5:
         return <NewCostOfLivingComponent value={this.state.newCostOfLiving}
-                         exactNewCostOfLivingValue={this.state.exactNewCostOfLivingValue}
-                         currentCostOfLiving={this.state.currentCostOfLiving}
-                         currentCity={this.state.currentCity}
-                         newCity={this.state.newCity}
-                         newCitySlug={this.state.newCitySlug}
-                         currencyType={this.state.currencyType}
-                         rentPercentChange={this.state.rentPercentChange}
-                         groceriesPercentChange={this.state.groceriesPercentChange}
-                         restaurantPercentChange={this.state.restaurantPercentChange}
-                         purchasingPercentChange={this.state.purchasingPercentChange}
-                         resetToFirstStep={this.resetToFirstStep}/>
+                      exactNewCostOfLivingValue={this.state.exactNewCostOfLivingValue}
+                      currentCostOfLiving={this.state.currentCostOfLiving}
+                      currentCity={this.state.currentCity}
+                      newCity={this.state.newCity}
+                      newCitySlug={this.state.newCitySlug}
+                      currencyType={this.state.currencyType}
+                      rentPercentChange={this.state.rentPercentChange}
+                      groceriesPercentChange={this.state.groceriesPercentChange}
+                      restaurantPercentChange={this.state.restaurantPercentChange}
+                      purchasingPercentChange={this.state.purchasingPercentChange}
+                      resetToFirstStep={this.resetToFirstStep} />
       default:
         return null;
     }
