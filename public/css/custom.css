@@ -404,8 +404,7 @@ a.social_links:hover {
 }
 
 .exchange-icon {
-  font-size: 25px !important;
-  padding-left: 10px;
+  color: #EA4C88;
   cursor: pointer;
   -o-transition:.5s;
   -ms-transition:.5s;
@@ -415,7 +414,7 @@ a.social_links:hover {
 }
 
 .exchange-icon:hover {
-  color: #EA4C88;
+  color: rgb(61, 242, 255);
 }
 
 /*Tooltips*/

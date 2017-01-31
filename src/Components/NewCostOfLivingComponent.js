@@ -144,8 +144,10 @@ let super_script = {
 	fontSize: '15px'
 }
 
-let font_weight_bold = {
-	fontWeight: '700'
+let salary_sub_properties = {
+	fontWeight: '700',
+	paddingLeft: '10px',
+    fontSize: '20px',
 }
 
 class NewCostOfLivingComponent extends React.Component {
@@ -186,20 +188,47 @@ class NewCostOfLivingComponent extends React.Component {
 
 	componentDidMount () {
 		fetch('https://openexchangerates.org/api/latest.json?app_id=0cc840f2153c4d378b1a2687918435e7')
-	          .then((response) => {
-	        		if (!response.ok) {
-		          		throw Error('Something went wrong retreiving currency information :(');
-		          	}
-		          	return response.json();
-	        	})
-	          .then((responseData) => {
-	    			this.setState({
-						currencyResponseRates: responseData.rates
-					});
-				})
-	          .catch((error) => {
-	          		console.log(error);
-	        	});
+          .then((response) => {
+        		if (!response.ok) {
+	          		throw Error('Something went wrong retreiving currency information :(');
+	          	}
+	          	return response.json();
+        	})
+          .then((responseData) => {
+    			this.setState({
+					currencyResponseRates: responseData.rates
+				});
+
+    			if (this.props.newCitySlug) {
+					fetch('https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/salaries/')
+			          .then((response) => {
+			        		if (!response.ok) {
+				          		throw Error('Something went wrong retreiving city information :(');
+				          	}
+				          	return response.json();
+			        	})
+			          .then((responseData) => {
+			          		let randomObject = responseData.salaries[Math.floor(Math.random()*responseData.salaries.length)];
+			     			let randomPosition = randomObject.job.title;
+			     			let randomSalary = randomObject.salary_percentiles.percentile_50;
+				          	
+				          	let configuredSalary = (randomSalary/this.state.currencyResponseRates['USD'])*this.state.currencyResponseRates[this.state.targetCurrency];
+				          	let roundedConfiguredSalary = (Math.round(configuredSalary/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+				          	
+				          	this.setState({
+				          		listOfSalaries: responseData,
+				            	position: randomPosition,
+				            	salary: roundedConfiguredSalary
+				            });
+						})
+			          .catch((error) => {
+			          		console.log(error);
+			        	});
+		        }
+			})
+          .catch((error) => {
+          		console.log(error);
+        	});
 
 		if (this.props.newCitySlug) {
 			fetch('https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/images/')
@@ -234,31 +263,6 @@ class NewCostOfLivingComponent extends React.Component {
 
 		          	this.setState({
 		            	bannerIntro: firstSentence
-		            });
-				})
-	          .catch((error) => {
-	          		console.log(error);
-	        	});
-
-	        fetch('https://api.teleport.org/api/urban_areas/slug:'+this.props.newCitySlug+'/salaries/')
-	          .then((response) => {
-	        		if (!response.ok) {
-		          		throw Error('Something went wrong retreiving city information :(');
-		          	}
-		          	return response.json();
-	        	})
-	          .then((responseData) => {
-	          		let randomObject = responseData.salaries[Math.floor(Math.random()*responseData.salaries.length)];
-	     			let randomPosition = randomObject.job.title;
-	     			let randomSalary = randomObject.salary_percentiles.percentile_50;
-		          	
-		          	let configuredSalary = (randomSalary/this.state.currencyResponseRates['USD'])*this.state.currencyResponseRates[this.state.targetCurrency];
-		          	let roundedConfiguredSalary = (Math.round(configuredSalary/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		          	
-		          	this.setState({
-		          		listOfSalaries: responseData,
-		            	position: randomPosition,
-		            	salary: roundedConfiguredSalary
 		            });
 				})
 	          .catch((error) => {
@@ -355,8 +359,9 @@ class NewCostOfLivingComponent extends React.Component {
 						{(this.props.newCitySlug) && <img src={this.state.bannerImage} style={{width: '100%', opacity: '0.4', 'height': '30vh'}} alt='City Banner'/>}
 						{(!this.props.newCitySlug) && <img src={banner_image_url} style={{width: '100%', opacity: '0.7', 'height': '30vh'}} alt='Stock Banner'/>}
 						{(this.props.newCitySlug) && <div className="banner-image-intro">{this.props.newCity}<br/>
-							{(this.props.newCitySlug !== 'london') && <span className="banner-image-sub-intro">{this.state.bannerIntro}.</span>}
+							{(this.props.newCitySlug !== 'london' && this.props.newCitySlug !== 'moscow') && <span className="banner-image-sub-intro">{this.state.bannerIntro}.</span>}
 							{(this.props.newCitySlug === 'london') && <span className="banner-image-sub-intro">London is one of the world's most inviting cities for startups, as well as home to world-class schools, universities and museums.</span>}
+							{(this.props.newCitySlug === 'moscow') && <span className="banner-image-sub-intro">Moscow is a lively city, rich in history and culture and is Russia's national center for visual and performing arts.</span>}
 						</div>}
 						{(!this.props.newCitySlug) && <div className="alternative-banner-image-intro">{this.props.newCity}</div>}
 					</div>
@@ -364,9 +369,9 @@ class NewCostOfLivingComponent extends React.Component {
 						<p style={intro}>To have the same standard of living, a comparable salary would be</p>
 							{(this.state.currentCurrency !== this.state.targetCurrency) && <div> 
 							{(this.props.newCitySlug) && <p style={comparable_salary_text}>≈ {this.state.currencyType} {this.state.value} 
-														<sub style={font_weight_bold} className='tooltip-bottom' data-tooltip='Click to convert the currency!' onClick={this.changeCurrencyTypeAndValue}><i className="fa fa-exchange exchange-icon" aria-hidden="true"></i></sub></p>}
+														<sub style={salary_sub_properties} className='tooltip-bottom' data-tooltip='Click to convert the currency!' onClick={this.changeCurrencyTypeAndValue}><i className="fa fa-exchange exchange-icon" aria-hidden="true"></i></sub></p>}
 							{(!this.props.newCitySlug) && <p style={alternative_comparable_salary_text}>≈ {this.state.currencyType} {this.state.value} 
-														<sub style={font_weight_bold} className='tooltip-bottom' data-tooltip='Click to convert the currency!' onClick={this.changeCurrencyTypeAndValue}><i className="fa fa-exchange exchange-icon" aria-hidden="true"></i></sub></p>}
+														<sub style={salary_sub_properties} className='tooltip-bottom' data-tooltip='Click to convert the currency!' onClick={this.changeCurrencyTypeAndValue}><i className="fa fa-exchange exchange-icon" aria-hidden="true"></i></sub></p>}
 							</div>}
 							{(this.state.currentCurrency === this.state.targetCurrency) && <div> 
 							{(this.props.newCitySlug) && <p style={comparable_salary_text} onClick={this.changeCurrencyTypeAndValue}>≈ {this.state.currencyType} {this.state.value}</p>}
