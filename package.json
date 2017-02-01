@@ -4,7 +4,6 @@
   "private": true,
   "devDependencies": {
     "react-scripts": "0.8.4",
-    "react-select": "^1.0.0-rc.2",
     "sw-precache": "^4.3.0"
   },
   "dependencies": {
