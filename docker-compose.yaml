@@ -1,0 +1,10 @@
+version: '2'
+services:
+  react-living-app:
+    restart: always
+    build:
+      context: .
+      dockerfile: 'Dockerfile'
+    ports:
+      - '3000:3000'
+      - '80:80'
