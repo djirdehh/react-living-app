@@ -110,14 +110,13 @@ let percent_index_text = {
 }
 
 let percent_index_text_no_change = {
-	color: 'antiquewhite',
+	color: '#FFF',
 	fontFamily: 'Nunito, sans-serif',
-	fontSize: '15px',
+	fontSize: '15.5px',
 	textAlign: 'center',
 	width: '50%',
-	marginBottom: '0',
 	display: 'block',
-	margin: '0 auto'
+	margin: '12px auto'
 }
 
 let up_arrow_index = {
@@ -392,7 +391,7 @@ class NewCostOfLivingComponent extends React.Component {
 									<i style={down_arrow_index} className="fa fa-arrow-down" aria-hidden="true"></i>
 								</p>}
 								{(!rent_increase_format && this.props.rentPercentChange === 0) && <p style={percent_index_text_no_change} className="tooltip-bottom" 
-								data-tooltip={'Rent is the same!'}> It's the same!
+								data-tooltip={'Rent is about the same!'}> It's the same!
 								</p>}
 							</div>
 							<div className='col-xs-12 col-sm-6 col-md-6 col-lg-3 mobilePadding'>
@@ -409,7 +408,7 @@ class NewCostOfLivingComponent extends React.Component {
 									<i style={down_arrow_index} className="fa fa-arrow-down" aria-hidden="true"></i>
 								</p>}
 								{(!groceries_increase_format && this.props.groceriesPercentChange === 0) && <p style={percent_index_text_no_change} className="tooltip-bottom"
-								data-tooltip={'Groceries are the same!'} > It's the same!
+								data-tooltip={'Groceries are about the same!'} > It's the same!
 								</p>}
 							</div>
 							<div className='col-xs-12 col-sm-6 col-md-6 col-lg-3 mobilePadding'>
@@ -426,7 +425,7 @@ class NewCostOfLivingComponent extends React.Component {
 									<i style={down_arrow_index} className="fa fa-arrow-down" aria-hidden="true"></i>
 								</p>}
 								{(!restaurant_increase_format && this.props.restaurantPercentChange === 0) && <p style={percent_index_text_no_change} className="tooltip-bottom" 
-								data-tooltip={'Dining out is the same!'} > It's the same!
+								data-tooltip={'Dining out is about the same!'} > It's the same!
 								</p>}
 							</div>
 							<div className='col-xs-12 col-sm-6 col-md-6 col-lg-3 mobilePadding'>
@@ -443,7 +442,7 @@ class NewCostOfLivingComponent extends React.Component {
 									<i style={up_arrow_index} className="fa fa-arrow-down" aria-hidden="true"></i>
 								</p>}
 								{(!purchasing_increase_format && this.props.purchasingPercentChange === 0) && <p style={percent_index_text_no_change} className="tooltip-bottom"
-								data-tooltip={'The purchasing power is the same!'} > It's the same!
+								data-tooltip={'The purchasing power is about the same!'} > It's the same!
 								</p>}
 							</div>
 						</div>

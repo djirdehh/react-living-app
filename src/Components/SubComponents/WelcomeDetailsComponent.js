@@ -91,14 +91,14 @@ class WelcomeDetailsComponent extends React.Component {
                   <img src={teleport_logo} style={logo_properties} alt='Teleport Logo'/>
                 <p style={description}> The 2017 cost of living indices were obtained from the largest database of user contributed data 
                   about cities and countries worldwide <a style={link} href="https://www.numbeo.com/cost-of-living/">Numbeo</a>.<br /><br />
-                  Further data with regards to income and living costs were obtained through <a style={link} href="https://developers.teleport.org/api/">Teleport's </a>
-                  Public API's. <a style={link} href="https://developers.teleport.org/">Teleport</a> is the largest and most up-to-date quality of life database and provide 
-                  their API's for the public to use.
+                  Further data with regards to income/ living costs were obtained through <a style={link} href="https://developers.teleport.org/api/">Teleport's </a>
+                  Public API's and cross referenced with up to date currency conversions from the <a style={link} href="https://status.openexchangerates.org/">Open Exchange Rates </a>
+                  API.
                 </p>
                 <h3 style={sub_intro}>React</h3>
                   <img src={react_logo} className='App-logo' alt='React Logo'/>
                 <p style={description}> This simple app marks my first foray into component oriented development and served as a great learning
-                experience in learning the main concepts behind React. React on it's own wouldn't generally be suitable for a fully scaled application but it handled very
+                experience in learning the main concepts behind React. React on it's own wouldn't generally be suitable for a fully scaled application but handled very
                 well for a simple app like this.
                 </p>
                 <div style={buttons_container}>
