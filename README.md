@@ -21,7 +21,7 @@
 ## Features
 * 🔩 <strong>Simple: </strong>Bootstrapped with [create-react-app](https://github.com/facebookincubator/create-react-app) and optimized with [react-select](https://github.com/JedWatson/react-select)
 
-* 📊 <strong>Structured: </strong> Data obtained from [Numbeo](https://www.numbeo.com/cost-of-living/) and cross-referenced with further data from [Teleport API's](https://developers.teleport.org/api/)
+* 📊 <strong>Structured: </strong> Data obtained from [Numbeo](https://www.numbeo.com/cost-of-living/) and cross-referenced with further data from [Teleport API's](https://developers.teleport.org/api/) and the [Open Exchange Rates API](https://openexchangerates.org/)
 
 * 💪 <strong>Powerful: </strong> Runs a [Service Worker](https://github.com/w3c/ServiceWorker) script to increase online performance and function without a network connection
 
