@@ -165,19 +165,13 @@ class NewCostOfLivingComponent extends React.Component {
 				currentCurrency: dataSet[this.props.currentCity].currency_type,
 				targetCurrency: dataSet[this.props.newCity].currency_type,
 				currencyResponseRates: '',
-				salary: '',
-				exactValue: this.props.exactNewCostOfLivingValue,
-				value: this.props.value,
-				currencyType: this.props.currencyType
+				salary: ''
 			}
 		} else {
 			this.state = {
 				currentCurrency: dataSet[this.props.currentCity].currency_type,
 				targetCurrency: dataSet[this.props.newCity].currency_type,
-				currencyResponseRates: '',
-				exactValue: this.props.exactNewCostOfLivingValue,
-				value: this.props.value,
-				currencyType: this.props.currencyType
+				currencyResponseRates: ''
 			}
 		}
 
@@ -285,24 +279,20 @@ class NewCostOfLivingComponent extends React.Component {
 	}
 
 	changeCurrencyTypeAndValue () {
-		let originalCurrencyType = this.state.currencyType;
-		let originalValue = this.state.exactValue;
+		let originalCurrencyType = this.props.currencyType;
+		let originalValue = this.props.exactNewCostOfLivingValue;
 		let newCurrencyType;
 		const dataSet = require('../data/cost_of_living_indices.json');
 
-		if (this.state.currencyType === this.props.currencyType) {
+		if (this.props.currencyType === dataSet[this.props.currentCity].currency_type) {
 			newCurrencyType = dataSet[this.props.newCity].currency_type;
-		} else if (this.state.currencyType !== this.props.currencyType) {
+		} else if (this.props.currencyType === dataSet[this.props.newCity].currency_type) {
 			newCurrencyType = dataSet[this.props.currentCity].currency_type;
 		}
 
 		let exactValue = (originalValue/this.state.currencyResponseRates[originalCurrencyType])*this.state.currencyResponseRates[newCurrencyType];
 
-		this.setState({
-			exactValue: exactValue,
-			value: (Math.round(exactValue/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
-			currencyType: newCurrencyType
-		})
+		this.props.changeCurrencyTypeAndValue(exactValue, (Math.round(exactValue/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), newCurrencyType);
 	}
 
 	render () {
@@ -367,14 +357,14 @@ class NewCostOfLivingComponent extends React.Component {
 					<div style={middle_container} className="container">
 						<p style={intro}>To have the same standard of living, a comparable salary would be</p>
 							{(this.state.currentCurrency !== this.state.targetCurrency) && <div> 
-							{(this.props.newCitySlug) && <p style={comparable_salary_text}>≈ {this.state.currencyType} {this.state.value} 
+							{(this.props.newCitySlug) && <p style={comparable_salary_text}>≈ {this.props.currencyType} {this.props.value} 
 														<sub style={salary_sub_properties} className='tooltip-bottom' data-tooltip='Click to convert the currency!' onClick={this.changeCurrencyTypeAndValue}><i className="fa fa-exchange exchange-icon" aria-hidden="true"></i></sub></p>}
-							{(!this.props.newCitySlug) && <p style={alternative_comparable_salary_text}>≈ {this.state.currencyType} {this.state.value} 
+							{(!this.props.newCitySlug) && <p style={alternative_comparable_salary_text}>≈ {this.props.currencyType} {this.props.value} 
 														<sub style={salary_sub_properties} className='tooltip-bottom' data-tooltip='Click to convert the currency!' onClick={this.changeCurrencyTypeAndValue}><i className="fa fa-exchange exchange-icon" aria-hidden="true"></i></sub></p>}
 							</div>}
 							{(this.state.currentCurrency === this.state.targetCurrency) && <div> 
-							{(this.props.newCitySlug) && <p style={comparable_salary_text} onClick={this.changeCurrencyTypeAndValue}>≈ {this.state.currencyType} {this.state.value}</p>}
-							{(!this.props.newCitySlug) && <p style={alternative_comparable_salary_text} onClick={this.changeCurrencyTypeAndValue}>≈ {this.state.currencyType} {this.state.value}</p>}
+							{(this.props.newCitySlug) && <p style={comparable_salary_text} onClick={this.changeCurrencyTypeAndValue}>≈ {this.props.currencyType} {this.props.value}</p>}
+							{(!this.props.newCitySlug) && <p style={alternative_comparable_salary_text} onClick={this.changeCurrencyTypeAndValue}>≈ {this.props.currencyType} {this.props.value}</p>}
 							</div>}
 						<div className='row'>
 							<div className='col-xs-12 col-sm-6 col-md-6 col-lg-3 mobilePadding'>

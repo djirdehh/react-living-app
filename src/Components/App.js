@@ -91,6 +91,14 @@ class App extends React.Component {
     this.nextStep();
   }
 
+  changeCurrencyTypeAndValue = (exactValue, value, newCurrencyType) => {
+    this.setState({
+      exactNewCostOfLivingValue: exactValue,
+      newCostOfLiving: value,
+      currencyType: newCurrencyType
+    })
+  }
+
   nextStep = () => {
     this.setState({
       step: this.state.step + 1 
@@ -163,7 +171,8 @@ class App extends React.Component {
                       groceriesPercentChange={this.state.groceriesPercentChange}
                       restaurantPercentChange={this.state.restaurantPercentChange}
                       purchasingPercentChange={this.state.purchasingPercentChange}
-                      resetToFirstStep={this.resetToFirstStep} />
+                      resetToFirstStep={this.resetToFirstStep}
+                      changeCurrencyTypeAndValue={this.changeCurrencyTypeAndValue} />
       default:
         return null;
     }
