@@ -66,3 +66,4 @@ Head over to <a href="https://github.com/facebookincubator/create-react-app">cre
 Much thanks to contributors:
 * [redcom](https://github.com/redcom)
 * [housseindjirdeh](https://github.com/housseindjirdeh)
+* [G2Jose](https://github.com/G2Jose)
