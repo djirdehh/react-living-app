@@ -49,15 +49,15 @@
 
 * `npm start` runs the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser and the page should reload whenever you make edits
 
+<p>
+Head over to <a href="https://github.com/facebookincubator/create-react-app">create-react-app</a> to see a list of things you can do.
+</p>
+
 ### Using Docker
 
 * Make sure you have docker installed
 
 * Run `docker-compose build && docker-compose up`. Open [http://localhost](http://localhost) to view
-
-<p>
-Head over to <a href="https://github.com/facebookincubator/create-react-app">create-react-app</a> to see a list of things you can do.
-</p>
 
 ## Improvements
 - [ ] Unit Tests!
@@ -66,3 +66,4 @@ Head over to <a href="https://github.com/facebookincubator/create-react-app">cre
 Much thanks to contributors:
 * [redcom](https://github.com/redcom)
 * [housseindjirdeh](https://github.com/housseindjirdeh)
+* [G2Jose](https://github.com/G2Jose)
