@@ -1,4 +1,5 @@
 import React from 'react';
+import Cities from './SubComponents/Cities.js';
 import banner_image_url from '../sky_banner.png';
 
 let full_page_height = {
@@ -10,6 +11,37 @@ let buttons_container = {
     zIndex: '999',
     top: '10px',
     left: '5px'
+}
+
+let search_container = {
+	width: '150px',
+	textAlign: 'center',
+    position: 'absolute',
+    zIndex: '999',
+    top: '10px',
+    right: '5px',
+    opacity: '0.94'
+}
+
+let information_icon_container = {
+	position: 'absolute',
+    zIndex: '999',
+    top: '15px',
+    right: '30px',
+    cursor: 'pointer',
+    fontFamily: 'Nunito, sans-serif',
+    textAlign: 'center',
+    fontWeight: '700',
+    height: '50px'
+}
+
+let information_icon = {
+	color: '#ea4c88',
+	backgroundColor: 'rgb(243, 243, 243)',
+    borderRadius: '100px',
+    boxShadow: '0px 0px 3px rgb(243, 243, 243)',
+    padding: '5px 10px',
+    fontSize: '16px'
 }
 
 let continue_button = {
@@ -165,13 +197,15 @@ class NewCostOfLivingComponent extends React.Component {
 				currentCurrency: dataSet[this.props.currentCity].currency_type,
 				targetCurrency: dataSet[this.props.newCity].currency_type,
 				currencyResponseRates: '',
-				salary: ''
+				salary: '',
+				onLastPage: true
 			}
 		} else {
 			this.state = {
 				currentCurrency: dataSet[this.props.currentCity].currency_type,
 				targetCurrency: dataSet[this.props.newCity].currency_type,
-				currencyResponseRates: ''
+				currencyResponseRates: '',
+				lastPage: true
 			}
 		}
 
@@ -295,6 +329,10 @@ class NewCostOfLivingComponent extends React.Component {
 		this.props.changeCurrencyTypeAndValue(exactValue, (Math.round(exactValue/100)*100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), newCurrencyType);
 	}
 
+	refreshCity = (e) => {
+		this.props.handleRefreshCityFunction(e);
+	}
+
 	render () {
 		let rentPercentChange;
 		let rent_increase_format;
@@ -304,6 +342,7 @@ class NewCostOfLivingComponent extends React.Component {
 		let restaurant_increase_format;
 		let purchasingPercentChange;
 		let purchasing_increase_format;
+		const dataSet = require('../data/cost_of_living_indices.json');
 
 		if (this.props.rentPercentChange > 0) {
 			rentPercentChange = this.props.rentPercentChange;
@@ -342,15 +381,28 @@ class NewCostOfLivingComponent extends React.Component {
 				<div style={buttons_container}>
 					<button style={continue_button} onClick={this.props.resetToFirstStep}>Menu</button>
 				</div>
+				{(this.props.currencyType === dataSet[this.props.currentCity].currency_type) && <div>
+					<div className="search_question_container tooltip-left" data-tooltip={"Pick another city to compare it's Cost of Living to living in  " + this.props.currentCity + " with a net income of " + this.state.currentCurrency + " " + this.props.currentCostOfLiving + "."}>
+						<i style={information_icon} className="fa fa-question" aria-hidden="true"></i>
+					</div>
+					<div style={search_container}>
+						<Cities onLastPage={this.state.onLastPage} onChange={this.refreshCity} searchable />
+					</div>
+				</div>}
+				{(this.props.currencyType !== dataSet[this.props.currentCity].currency_type) && <div style={information_icon_container} className="tooltip-left" data-tooltip='Convert back to your base currency to be able compare the Cost of Living with another city!'>
+					<i style={information_icon} className="fa fa-info" aria-hidden="true"></i>
+				</div>}
 
 				<div style={full_page_height}>
 					<div style={image_container} className="background-darken">
 						{(this.props.newCitySlug) && <img src={this.state.bannerImage} style={{width: '100%', opacity: '0.4', 'height': '30vh'}} alt='City Banner'/>}
 						{(!this.props.newCitySlug) && <img src={banner_image_url} style={{width: '100%', opacity: '0.7', 'height': '30vh'}} alt='Stock Banner'/>}
 						{(this.props.newCitySlug) && <div className="banner-image-intro">{this.props.newCity}<br/>
-							{(this.props.newCitySlug !== 'london' && this.props.newCitySlug !== 'moscow') && <span className="banner-image-sub-intro">{this.state.bannerIntro}.</span>}
+							{(this.props.newCitySlug !== 'london' && this.props.newCitySlug !== 'moscow' && this.props.newCitySlug !== 'brussels') && <span className="banner-image-sub-intro">{this.state.bannerIntro}.</span>}
 							{(this.props.newCitySlug === 'london') && <span className="banner-image-sub-intro">London is one of the world's most inviting cities for startups, as well as home to world-class schools, universities and museums.</span>}
 							{(this.props.newCitySlug === 'moscow') && <span className="banner-image-sub-intro">Moscow is a lively city, rich in history and culture and is Russia's national center for visual and performing arts.</span>}
+							{(this.props.newCitySlug === 'brussels') && <span className="banner-image-sub-intro">Life in Brussels is a culturally rich, central-European adventure, home to much of the European Union infrastructure</span>}
+
 						</div>}
 						{(!this.props.newCitySlug) && <div className="alternative-banner-image-intro">{this.props.newCity}</div>}
 					</div>

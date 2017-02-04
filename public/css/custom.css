@@ -625,8 +625,20 @@ a.social_links:hover {
 .tooltip-right:after {
   margin-left: 0;
   margin-bottom: -16px;
+  font-size: 11px; /* Self added to make the information icon tooltip unique */
+  width: 300px; /* Self added to make the information icon tooltip unique */
 }
 
+.search_question_container {
+    position: absolute;
+    z-index: 999;
+    top: 15px;
+    right: 160px;
+    font-family: Nunito, sans-serif;
+    text-align: center;
+    font-weight: 700;
+    height: 50px;
+}
 /*Media Queries*/
 .welcome-block {
   background: #2C3338;
@@ -707,6 +719,15 @@ a.social_links:hover {
 
   .checkbox-label {
     font-size: 11px;
+  }
+
+  .tooltip-left:after,
+  .tooltip-right:after {
+    width: 200px;
+}
+
+  .search_question_container {
+    display: none;
   }
 }
 

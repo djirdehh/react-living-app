@@ -19,6 +19,7 @@ class App extends React.Component {
     groceriesPercentChange: 0,
     restaurantPercentChange: 0,
     purchasingPercentChange: 0,
+    refreshCity: false
   };
 
   handleCurrentCostOfLivingInput = (e) => {
@@ -50,6 +51,20 @@ class App extends React.Component {
   handleNewCity = (e) => {
     this.setState({
       newCity: e
+    });
+  }
+
+  handleRefreshCity = (e) => {
+    this.setState({
+      newCity: e,
+      refreshCity: true
+    },
+    function () {
+      this.calculateNewCostOfLivingAndNextStep();
+
+      this.setState({
+        refreshComponent: !(this.state.refreshComponent)
+      });
     });
   }
 
@@ -88,7 +103,9 @@ class App extends React.Component {
       purchasingPercentChange: purchasingPercentChange
     });
 
-    this.nextStep();
+    if (!this.state.refreshCity) {
+      this.nextStep();
+    }
   }
 
   changeCurrencyTypeAndValue = (exactValue, value, newCurrencyType) => {
@@ -126,7 +143,8 @@ class App extends React.Component {
       rentPercentChange: 0,
       groceriesPercentChange: 0,
       restaurantPercentChange: 0,
-      purchasingPercentChange: 0
+      purchasingPercentChange: 0,
+      refreshCity: false
     })
   }
 
@@ -160,7 +178,8 @@ class App extends React.Component {
                       stepNumber={this.state.step}
                       resetToFirstStep={this.resetToFirstStep} />
       case 5:
-        return <NewCostOfLivingComponent value={this.state.newCostOfLiving}
+        return <NewCostOfLivingComponent key={this.state.refreshComponent}
+                      value={this.state.newCostOfLiving}
                       exactNewCostOfLivingValue={this.state.exactNewCostOfLivingValue}
                       currentCostOfLiving={this.state.currentCostOfLiving}
                       currentCity={this.state.currentCity}
@@ -172,7 +191,9 @@ class App extends React.Component {
                       restaurantPercentChange={this.state.restaurantPercentChange}
                       purchasingPercentChange={this.state.purchasingPercentChange}
                       resetToFirstStep={this.resetToFirstStep}
-                      changeCurrencyTypeAndValue={this.changeCurrencyTypeAndValue} />
+                      changeCurrencyTypeAndValue={this.changeCurrencyTypeAndValue}
+                      handleNewCityFunction={this.handleNewCity}
+                      handleRefreshCityFunction={this.handleRefreshCity} />
       default:
         return null;
     }
