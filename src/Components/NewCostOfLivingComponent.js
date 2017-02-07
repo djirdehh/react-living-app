@@ -382,7 +382,7 @@ class NewCostOfLivingComponent extends React.Component {
 					<button style={continue_button} onClick={this.props.resetToFirstStep}>Menu</button>
 				</div>
 				{(this.props.currencyType === dataSet[this.props.currentCity].currency_type) && <div>
-					<div className="search_question_container tooltip-left" data-tooltip={"Pick another city to compare it's Cost of Living to living in  " + this.props.currentCity + " with a net income of " + this.state.currentCurrency + " " + this.props.currentCostOfLiving + "."}>
+					<div className="search_question_container tooltip-left" data-tooltip={"Pick another city to compare its Cost of Living to living in -  " + this.props.currentCity + " with a net income of " + this.state.currentCurrency + " " + this.props.currentCostOfLiving + "."}>
 						<i style={information_icon} className="fa fa-question" aria-hidden="true"></i>
 					</div>
 					<div style={search_container}>
