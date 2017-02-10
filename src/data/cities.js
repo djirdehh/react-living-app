@@ -433,5 +433,6 @@ exports.ALL = [
     { value: 'Nairobi, Kenya', label: 'Nairobi, Kenya' },
     { value: 'Rabat, Morocco', label: 'Rabat, Morocco' },
     { value: 'Tripoli, Libya', label: 'Tripoli, Libya' },
-    { value: 'Tunis, Tunisia', label: 'Tunis, Tunisia' }
+    { value: 'Tunis, Tunisia', label: 'Tunis, Tunisia' },
+    { value: 'Vancouver, Canada', label: 'Vancouver, Canada' }
 ]
