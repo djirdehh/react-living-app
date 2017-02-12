@@ -266,7 +266,7 @@ exports.ALL = [
     { value: 'Rotterdam, Netherlands', label: 'Rotterdam, Netherlands' },
     { value: 'Saint Petersburg, Russia', label: 'Saint Petersburg, Russia' },
     { value: 'Sarajevo, Bosnia And Herzegovina', label: 'Sarajevo, Bosnia And Herzegovina' },
-    { value: 'Sevilla, Spain', label: 'Sevilla, Spain' },
+    { value: 'Seville, Spain', label: 'Seville, Spain' },
     { value: 'Sheffield, United Kingdom', label: 'Sheffield, United Kingdom' },
     { value: 'Sibiu, Romania', label: 'Sibiu, Romania' },
     { value: 'Skopje, Macedonia', label: 'Skopje, Macedonia' },
