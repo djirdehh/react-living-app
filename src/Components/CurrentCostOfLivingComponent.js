@@ -75,7 +75,8 @@ let result_text = {
 	fontFamily: 'Nunito, sans-serif',
 	fontSize: '30px',
 	textAlign: 'center',
-	marginTop: '32px'
+	marginTop: '32px',
+	fontWeight: '200'
 }
 
 let buttons_overlay = {

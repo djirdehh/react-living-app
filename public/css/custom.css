@@ -346,7 +346,7 @@ a.social_links:hover {
   color: #FFF;
   font-family: Nunito, sans-serif;
   font-size: 30px;
-  font-weight: 700;
+  font-weight: 400;
   position: absolute;
   top: 35%;
   width: 100%;
@@ -358,7 +358,7 @@ a.social_links:hover {
   color: #FFF;
   font-family: Nunito, sans-serif;
   font-size: 30px;
-  font-weight: 700;
+  font-weight: 400;
   z-index: 1;
   cursor: pointer;
   -o-transition:.5s;
@@ -370,8 +370,7 @@ a.social_links:hover {
 }
 
 .banner-image-intro-brackets:hover {
-  font-size: 35px;
-  text-shadow: 0px 0px 1px #32b496, 0px 0px 1px #32b496;
+  color: #EA4C88;;
 }
 
 .banner-brackets {
@@ -383,7 +382,7 @@ a.social_links:hover {
   color: #FFF;
   font-family: Nunito, sans-serif;
   font-size: 30px;
-  font-weight: 700;
+  font-weight: 400;
   position: absolute;
   top: 40%;
   width: 100%;
@@ -395,7 +394,7 @@ a.social_links:hover {
   color: #FFF;
   font-family: Nunito, sans-serif;
   font-size: 30px;
-  font-weight: 700;
+  font-weight: 400;
   position: absolute;
   top: 40%;
   width: 100%;
@@ -410,26 +409,26 @@ a.social_links:hover {
 }
 
 .alternative-banner-image-intro-brackets:hover {
-  font-size: 35px;
-  text-shadow: 0px 0px 1px #32b496, 0px 0px 1px #32b496;
+  color: #EA4C88;;
 }
 
 .banner-image-sub-intro {
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 200;
 }
 
 .banner-image-sub-intro-brackets {
   color: #FFF;
   font-family: Nunito, sans-serif;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 200;
 }
 
 .random-salary-text {
   color: #FFF;
   font-family: Nunito, sans-serif;
   font-size: 20px;
+  font-weight: 200;
   display: inline-block;
 }
 
@@ -458,6 +457,16 @@ a.social_links:hover {
   font-size: 20px;
   font-weight: 700;
   display: inline-block;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
+.brackets-icon {
+  color: #EA4C88;
+  cursor: pointer;
   -o-transition:.5s;
   -ms-transition:.5s;
   -moz-transition:.5s;
@@ -582,6 +591,7 @@ a.social_links:hover {
 .tooltip:after,
 .tooltip-top:after {
   margin-left: -80px;
+  font-size: 12px;
 }
 
 [data-tooltip]:hover:before,
@@ -1245,6 +1255,22 @@ a.social_links:hover {
   font-size: 14px;
   line-height: 1.05882rem;
   text-align: center;
+}
+
+.spotahome-text {
+  color: #FFF;
+  font-family: Nunito, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
+.spotahome-text:hover {
+  color: #ea4c88;
 }
 
 @media only screen and (max-width: 500px) {
