@@ -121,7 +121,7 @@ class SpotAHomeDetailsComponent extends React.Component {
         </div>
         <div className={image_container_class}>
           <div>
-          <div className="header-title">Discover {housing_number} of mid to long term housing options in {this.props.newCity} with <span style={{fontWeight: '600'}}>Spotahome</span>, 
+          <div className="header-title">Discover {housing_number} of mid to long term housing options in {this.props.newCity} with <span style={{fontWeight: '700'}}>Spotahome</span>, 
           one of the largest online direct booking platforms that currently operates in 16 cities <span style={{fontWeight: '600'}}>worldwide</span>.
           </div>
             <div className="launch-button" style={{display: 'block', margin: '0 auto', cursor: 'pointer'}}>
