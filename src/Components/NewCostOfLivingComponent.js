@@ -217,7 +217,7 @@ class NewCostOfLivingComponent extends React.Component {
 	}
 
 	componentDidMount () {
-		fetch('https://openexchangerates.org/api/latest.json?app_id=0cc840f2153c4d378b1a2687918435e')
+		fetch('https://openexchangerates.org/api/latest.json?app_id=0cc840f2153c4d378b1a2687918435e7')
           .then((response) => {
         		if (!response.ok) {
 	          		throw Error('Something went wrong retreiving currency information :(');
@@ -446,15 +446,18 @@ class NewCostOfLivingComponent extends React.Component {
 							</div>}
 							{this.isASpotAHomeCity() && <div>
 								{(this.props.newCitySlug) && <div className="banner-image-intro-brackets-section">
-									<div onClick={this.openSpotAHomeDetails} style={{fontFamily: 'Nunito', paddingBottom: '7px'}} className='tooltip-top' data-tooltip={'Considering a move to '+this.props.newCity+'?'}>
-										<span className="banner-image-intro-brackets">{this.props.newCity}<sub style={salary_sub_properties}><i className="fa fa-mouse-pointer brackets-icon" aria-hidden="true"></i></sub></span><br/>
+									<div className="banner-image-intro-brackets" style={{fontFamily: 'Nunito', paddingBottom: '7px'}}>
+										<span onClick={this.openSpotAHomeDetails} className='tooltip-top' data-tooltip={'Considering a move to '+this.props.newCity+'?'}>{this.props.newCity}<sub style={salary_sub_properties}><i className="fa fa-mouse-pointer brackets-icon" aria-hidden="true"></i></sub></span><br/>
 									</div>
 									{(this.props.newCitySlug !== 'london' && this.props.newCitySlug !== 'moscow' && this.props.newCitySlug !== 'brussels') && <span className="banner-image-sub-intro-brackets">{this.state.bannerIntro}.</span>}
 									{(this.props.newCitySlug === 'london') && <span className="banner-image-sub-intro-brackets">London is one of the world's most inviting cities for startups, as well as home to world-class schools, universities and museums.</span>}
 									{(this.props.newCitySlug === 'moscow') && <span className="banner-image-sub-intro-brackets">Moscow is a lively city, rich in history and culture and is Russia's national center for visual and performing arts.</span>}
 									{(this.props.newCitySlug === 'brussels') && <span className="banner-image-sub-intro-brackets">Life in Brussels is a culturally rich, central-European adventure, home to much of the European Union infrastructure</span>}
 								</div>}
-								{(!this.props.newCitySlug) && <div onClick={this.openSpotAHomeDetails} className="alternative-banner-image-intro-brackets">{this.props.newCity}<sub style={salary_sub_properties}><i className="fa fa-mouse-pointer brackets-icon" aria-hidden="true"></i></sub></div>}
+								{(!this.props.newCitySlug) && <div className="alternative-banner-image-intro-brackets">
+									<div>
+										<span onClick={this.openSpotAHomeDetails} className='tooltip-top' data-tooltip={'Considering a move to '+this.props.newCity+'?'}>{this.props.newCity}<sub style={salary_sub_properties}><i className="fa fa-mouse-pointer brackets-icon" aria-hidden="true"></i></sub></span></div>
+									</div>}
 							</div>}
 						</div>
 						<div style={middle_container} className="container">

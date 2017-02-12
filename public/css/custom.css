@@ -360,7 +360,6 @@ a.social_links:hover {
   font-size: 30px;
   font-weight: 400;
   z-index: 1;
-  cursor: pointer;
   -o-transition:.5s;
   -ms-transition:.5s;
   -moz-transition:.5s;
@@ -400,7 +399,6 @@ a.social_links:hover {
   width: 100%;
   text-align: center;
   z-index: 1;
-  cursor: pointer;
   -o-transition:.5s;
   -ms-transition:.5s;
   -moz-transition:.5s;
