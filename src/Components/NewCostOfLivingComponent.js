@@ -435,7 +435,7 @@ class NewCostOfLivingComponent extends React.Component {
 						<div style={image_container} className="background-darken">
 							{(this.props.newCitySlug) && <img src={this.state.bannerImage} style={{width: '100%', opacity: '0.4', 'height': '30vh'}} alt='City Banner'/>}
 							{(!this.props.newCitySlug) && <img src={banner_image_url} style={{width: '100%', opacity: '0.7', 'height': '30vh'}} alt='Stock Banner'/>}
-							{!this.isASpotAHomeCity() && <div>
+							<div>
 								{(this.props.newCitySlug) && <div className="banner-image-intro">{this.props.newCity}<br/>
 									{(this.props.newCitySlug !== 'london' && this.props.newCitySlug !== 'moscow' && this.props.newCitySlug !== 'brussels') && <span className="banner-image-sub-intro">{this.state.bannerIntro}.</span>}
 									{(this.props.newCitySlug === 'london') && <span className="banner-image-sub-intro">London is one of the world's most inviting cities for startups, as well as home to world-class schools, universities and museums.</span>}
@@ -443,22 +443,7 @@ class NewCostOfLivingComponent extends React.Component {
 									{(this.props.newCitySlug === 'brussels') && <span className="banner-image-sub-intro">Life in Brussels is a culturally rich, central-European adventure, home to much of the European Union infrastructure</span>}
 								</div>}
 								{(!this.props.newCitySlug) && <div className="alternative-banner-image-intro">{this.props.newCity}</div>}
-							</div>}
-							{this.isASpotAHomeCity() && <div>
-								{(this.props.newCitySlug) && <div className="banner-image-intro-brackets-section">
-									<div className="banner-image-intro-brackets" style={{fontFamily: 'Nunito', paddingBottom: '7px'}}>
-										<span onClick={this.openSpotAHomeDetails} className='tooltip-top' data-tooltip={'Considering a move to '+this.props.newCity+'?'}>{this.props.newCity}<sub style={salary_sub_properties}><i className="fa fa-mouse-pointer brackets-icon" aria-hidden="true"></i></sub></span><br/>
-									</div>
-									{(this.props.newCitySlug !== 'london' && this.props.newCitySlug !== 'moscow' && this.props.newCitySlug !== 'brussels') && <span className="banner-image-sub-intro-brackets">{this.state.bannerIntro}.</span>}
-									{(this.props.newCitySlug === 'london') && <span className="banner-image-sub-intro-brackets">London is one of the world's most inviting cities for startups, as well as home to world-class schools, universities and museums.</span>}
-									{(this.props.newCitySlug === 'moscow') && <span className="banner-image-sub-intro-brackets">Moscow is a lively city, rich in history and culture and is Russia's national center for visual and performing arts.</span>}
-									{(this.props.newCitySlug === 'brussels') && <span className="banner-image-sub-intro-brackets">Life in Brussels is a culturally rich, central-European adventure, home to much of the European Union infrastructure</span>}
-								</div>}
-								{(!this.props.newCitySlug) && <div className="alternative-banner-image-intro-brackets">
-									<div>
-										<span onClick={this.openSpotAHomeDetails} className='tooltip-top' data-tooltip={'Considering a move to '+this.props.newCity+'?'}>{this.props.newCity}<sub style={salary_sub_properties}><i className="fa fa-mouse-pointer brackets-icon" aria-hidden="true"></i></sub></span></div>
-									</div>}
-							</div>}
+							</div>
 						</div>
 						<div style={middle_container} className="container">
 							<p style={intro}>To have the same standard of living, a comparable salary would be</p>
@@ -473,7 +458,7 @@ class NewCostOfLivingComponent extends React.Component {
 								{(!this.props.newCitySlug) && <p style={alternative_comparable_salary_text} onClick={this.changeCurrencyTypeAndValue}>≈ {this.props.currencyType} {this.props.value}</p>}
 								</div>}
 							<div className='row'>
-								<div className='col-xs-12 col-sm-6 col-md-6 col-lg-3 mobilePadding'>
+								{!this.isASpotAHomeCity() && <div className='col-xs-12 col-sm-6 col-md-6 col-lg-3 mobilePadding'>
 									<div style={icon_index} id="icon-box">
 		  								<span><i className="fa fa-home fa fa-lg-modification"></i></span>
 									</div>
@@ -489,7 +474,24 @@ class NewCostOfLivingComponent extends React.Component {
 									{(!rent_increase_format && this.props.rentPercentChange === 0) && <p style={percent_index_text_no_change} className="tooltip-bottom" 
 									data-tooltip={'Rent is about the same!'}> It's the same!
 									</p>}
-								</div>
+								</div>}
+								{this.isASpotAHomeCity() && <div className='col-xs-12 col-sm-6 col-md-6 col-lg-3 mobilePadding'>
+									<div onClick={this.openSpotAHomeDetails} style={icon_index} id="spotahome-icon-box">
+		  								<span><i className="fa fa-strikethrough fa fa-spotahome-lg-modification"></i></span>
+									</div>
+									<p onClick={this.openSpotAHomeDetails} style={sub_salary_text} className="tooltip-top" data-tooltip={'Let Spotahome help in your move to ' + this.props.newCity + '!'}>Rent/Living</p>
+									{(rent_increase_format) && <p style={percent_index_text} className="tooltip-bottom" 
+									data-tooltip={'Rent is '+rentPercentChange+'% more expensive in '+this.props.newCity+'!'}> {rentPercentChange}%
+										<i style={up_arrow_index} className="fa fa-arrow-up" aria-hidden="true"></i>
+									</p>}
+									{(!rent_increase_format && this.props.rentPercentChange !== 0) && <p style={percent_index_text} className="tooltip-bottom" 
+									data-tooltip={'Rent is cheaper by '+rentPercentChange+'% in '+this.props.newCity+'.'} onClick={this.openSpotAHomeDetails}> {rentPercentChange}%
+										<i style={down_arrow_index} className="fa fa-arrow-down" aria-hidden="true"></i>
+									</p>}
+									{(!rent_increase_format && this.props.rentPercentChange === 0) && <p style={percent_index_text_no_change} className="tooltip-bottom" 
+									data-tooltip={'Rent is about the same!'} onClick={this.openSpotAHomeDetails}> It's the same!
+									</p>}
+								</div>}
 								<div className='col-xs-12 col-sm-6 col-md-6 col-lg-3 mobilePadding'>
 									<div style={icon_index} id="icon-box">
 		  								<span><i className="fa fa-shopping-cart fa fa-lg-modification"></i></span>
