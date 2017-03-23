@@ -17,7 +17,7 @@
 
 <p><a href="https://www.citii.io" class="btn btn-primary btn-md">Launch App</a></p>
 </div>
----
+
 
 ## Features
 * 🔩 <strong>Simple: </strong>Bootstrapped with [create-react-app](https://github.com/facebookincubator/create-react-app) and optimized with [react-select](https://github.com/JedWatson/react-select)
