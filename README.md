@@ -15,7 +15,7 @@
 
 <p>✨ <strong>Citii</strong> is a react app that allows users to compare and analyze the cost of living between cities around   the world. ✨</p>
 
-<p><a href="https://www.citii.io" class="btn btn-primary btn-md">Launch App</a></p>
+<p><a href="https://citii-io.herokuapp.com/" class="btn btn-primary btn-md">Launch App</a></p>
 </div>
 
 
