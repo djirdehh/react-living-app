@@ -46,7 +46,7 @@
 
 * `cd react-living-app`
 
-* If you don't have create-react-app installed run `npm install create-react-app`
+* `npm install` to install the dependencies
 
 * `npm start` runs the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser and the page should reload whenever you make edits
 
